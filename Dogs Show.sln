@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Android", "DogShow.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Data", "DogShow.Data\DogShow.Data.csproj", "{15A29F4C-7383-43F8-B83C-6728041EA29B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Models", "Models\DogShow.Models.csproj", "{F1A6F09E-5308-4475-ABAF-4FEBF0425218}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Models", "DogShow.Models\DogShow.Models.csproj", "{F1A6F09E-5308-4475-ABAF-4FEBF0425218}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

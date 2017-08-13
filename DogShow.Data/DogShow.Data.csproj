@@ -66,7 +66,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Models\DogShow.Models.csproj">
+    <ProjectReference Include="..\DogShow.Models\DogShow.Models.csproj">
       <Project>{f1a6f09e-5308-4475-abaf-4febf0425218}</Project>
       <Name>DogShow.Models</Name>
     </ProjectReference>

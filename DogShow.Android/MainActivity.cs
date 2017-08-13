@@ -45,15 +45,16 @@ namespace DogShow.Android
                 switch (e.MenuItem.ToString())
                 {
                     case "Dogs Show":
-                        transection.Add(Resource.Id.frame_content_container, new LoginFragment(), "Login window");
+                        transection.Replace(Resource.Id.frame_content_container, new LoginFragment(), "Login window");
                         break;
                     case "Messages":
-                        transection.Add(Resource.Id.frame_content_container, new RegisterFragment(), "Register window");
+                        transection.Replace(Resource.Id.frame_content_container, new RegisterFragment(), "Register window");
                         break;
                     case "Friends":
-                        transection.Add(Resource.Id.frame_content_container, new ShowsFragment(), "Register window");
+                        transection.Replace(Resource.Id.frame_content_container, new ShowsFragment(), "Register window");
                         break;
                 }
+                transection.AddToBackStack(null);
                 transection.Commit();
                 e.MenuItem.SetChecked(true);
                 _drawerLayout.CloseDrawers();
