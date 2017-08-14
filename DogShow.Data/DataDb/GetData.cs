@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
-using DogShow.Models;
 
 namespace DogShow.Data.DataDb
 {

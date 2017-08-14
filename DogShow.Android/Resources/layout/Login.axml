@@ -2,26 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical">
-    <EditText
-        android:layout_height="140px"
-        android:hint="Login"
-        android:layout_width="fill_parent"
-        android:id="@+id/LoginEt" />
-    <EditText
-        android:password="true"
-        android:layout_height="140px"
-        android:hint="Password"
-        android:layout_width="fill_parent"
-        android:id="@+id/PasswordEt" />
-    <CheckBox
-        android:layout_height="140px"
-        android:text="Show password?"
-        android:layout_width="fill_parent"
-        android:id="@+id/IsPass" />
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:gravity="center">
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_height="140px"
+            android:hint="Login"
+            android:layout_width="fill_parent"
+            android:id="@+id/LoginEt" />
+    </android.support.design.widget.TextInputLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:id="@+id/IsShowPass"
+            android:checked="false"
+            android:button="@drawable/show_pass_selector" />
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_marginRight="150px"
+            android:layout_height="wrap_content">
+            <EditText
+                android:password="true"
+                android:layout_height="fill_parent"
+                android:hint="Password"
+                android:layout_width="match_parent"
+                android:id="@+id/PasswordEt" />
+        </android.support.design.widget.TextInputLayout>
+    </FrameLayout>
     <Button
         android:layout_height="140px"
         android:text="Loging"
+        android:background="@drawable/roundedbutton"
         android:layout_width="fill_parent"
+        android:shadowColor="#000"
+        android:shadowDx="1"
+        android:textColor="@color/texts"
+        android:shadowRadius="1"
         android:id="@+id/LoginBtn" />
 </LinearLayout>

@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <group android:checkableBehavior="single">
-    <item android:id="@+id/nav_home" android:icon="@drawable/ic_dashboard" android:title="Dogs Show" android:visible ="true" />
-    <item android:id="@+id/nav_messages" android:icon="@drawable/ic_event" android:title="Messages" android:visible ="true"/>
-    <item android:id="@+id/nav_friends" android:icon="@drawable/ic_headset" android:title="Friends" android:visible ="true"/>
-    <item android:id="@+id/nav_discussion" android:icon="@drawable/ic_forum" android:title="Discussion" android:visible ="true"/>
+    <item android:id="@+id/nav_dogShow" android:icon="@drawable/ic_dashboard" android:title="Dogs Show" android:visible ="true" />
+    <item android:id="@+id/nav_hallOfFame" android:icon="@drawable/ic_event" android:title="Hall of Fame" android:visible ="true"/>
+    <item android:id="@+id/nav_adminPanel" android:icon="@drawable/ic_headset" android:title="Admin control panel" android:visible ="true"/>
+    <item android:id="@+id/nav_myDog" android:icon="@drawable/ic_forum" android:title="My dog" android:visible ="true"/>
+    <item android:id="@+id/nav_expertPanel" android:icon="@drawable/ic_forum" android:title="Expert panel" android:visible ="true"/>
   </group>
 </menu>
