@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Android.Models
+namespace DogShow.Data
 {
     public class DogBattleModel
     {

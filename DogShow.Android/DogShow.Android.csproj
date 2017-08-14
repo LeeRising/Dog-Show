@@ -188,10 +188,12 @@
       <Project>{15a29f4c-7383-43f8-b83c-6728041ea29b}</Project>
       <Name>DogShow.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DogShow.Models\DogShow.Models.csproj">
-      <Project>{f1a6f09e-5308-4475-abaf-4febf0425218}</Project>
-      <Name>DogShow.Models</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\slide_in.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\anim\slide_out.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

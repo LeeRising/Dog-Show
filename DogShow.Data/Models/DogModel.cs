@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DogShow.Models
+namespace DogShow.Data
 {
     public class DogModel
     {

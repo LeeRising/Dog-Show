@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace DogShow.Models
+namespace DogShow.Data
 {
     class HallOfFameModel : INotifyPropertyChanged
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DogShow.Models
+namespace DogShow.Data
 {
     public class UserModel
     {

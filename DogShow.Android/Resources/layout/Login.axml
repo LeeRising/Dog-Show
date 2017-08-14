@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
     <EditText
         android:layout_height="140px"
         android:hint="Login"
@@ -13,9 +14,14 @@
         android:hint="Password"
         android:layout_width="fill_parent"
         android:id="@+id/PasswordEt" />
+    <CheckBox
+        android:layout_height="140px"
+        android:text="Show password?"
+        android:layout_width="fill_parent"
+        android:id="@+id/IsPass" />
     <Button
         android:layout_height="140px"
         android:text="Loging"
         android:layout_width="fill_parent"
         android:id="@+id/LoginBtn" />
-</RelativeLayout>
+</LinearLayout>
