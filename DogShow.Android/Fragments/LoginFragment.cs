@@ -4,8 +4,6 @@ using Android.Support.V4.App;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
-using DogShow.Data;
-using DogShow.Data.DataDb;
 
 namespace DogShow.Android.Fragments
 {
@@ -23,7 +21,7 @@ namespace DogShow.Android.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.Login, container, false);
+            var view = inflater.Inflate(Resource.Layout.Login_fragment, container, false);
             return view;
         }
 
@@ -47,7 +45,7 @@ namespace DogShow.Android.Fragments
 
         private void LoginClick(object sender, EventArgs e)
         {
-            var v = GetData.GetLoginUser(_loginEt.Text, Cryptography.getHashSha256(_passEt.Text)).Result;
+            //var v = GetData.GetLoginUser(_loginEt.Text, Cryptography.getHashSha256(_passEt.Text)).Result;
         }
     }
 }

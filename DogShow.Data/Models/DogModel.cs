@@ -1,9 +1,11 @@
 ﻿using System;
+using SQLite;
 
 namespace DogShow.Data
 {
     public class DogModel
     {
+        [PrimaryKey,AutoIncrement]
         public long Id { get; set; }
         public string Name { get; set; }
         public int Age { get; set; }

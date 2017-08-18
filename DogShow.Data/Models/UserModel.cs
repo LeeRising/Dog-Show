@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using SQLite;
 
 namespace DogShow.Data
 {
     public class UserModel
     {
+        [PrimaryKey]
         public string Guid { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }

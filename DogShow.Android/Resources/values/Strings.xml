@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+  <!-- Main Activity -->
   <string name="ApplicationName">Dogs Show</string>
+  <!-- Login Activity -->
+  <string name="Auth">Authorize</string>
+  <string name="LogSwitcher">Login</string>
+  <string name="RegSwitcher">Register</string>
+  <!-- Navigation -->
+  <string name="LoginRegister">Login/Register</string>
   <string name="drawer_open">Open</string>
   <string name="drawer_close">Close</string>
+  <string name="DogShow">Dogs Show</string>
+  <string name="HallOfFame">Hall of Fame</string>
+  <string name="AdminPanel">Admin control panel</string>
+  <string name="MyDog">My dog</string>
+  <string name="ExpertPanel">Expert Panel</string>
+  <!-- Login Fragment -->
+  <string name="LoginLabel">Login</string>
+  <string name="PasswordLabel">Password</string>
+  <string name="LoginBtn">Login</string>
 </resources>

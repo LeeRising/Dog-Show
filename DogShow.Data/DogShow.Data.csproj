@@ -41,6 +41,9 @@
     <Reference Include="MySql.Data.CF">
       <HintPath>..\Components\MySQL-Plugin-1.0\lib\android\MySql.Data.CF.dll</HintPath>
     </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\Components\sqlite-net-1.0.11\lib\android\SQLite-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -56,15 +59,13 @@
     <Compile Include="ConfigDbContext.cs" />
     <Compile Include="DataDb\Constans.cs" />
     <Compile Include="DataDb\GetData.cs" />
-    <Compile Include="LogingUser.cs" />
+    <Compile Include="Models\LogingUserModel.cs" />
     <Compile Include="Models\DogBattleModel.cs" />
     <Compile Include="Models\DogModel.cs" />
     <Compile Include="Models\ExpertModel.cs" />
     <Compile Include="Models\HallOfFameModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLite.cs" />
-    <Compile Include="SQLiteAsync.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

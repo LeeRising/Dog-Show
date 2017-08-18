@@ -5,6 +5,8 @@
     <item name="colorPrimaryDark">#1976D2</item>
     <item name="android:windowBackground">@color/window_background</item>
     <item name="android:fontFamily">sans-serif-light</item>
-    <item name="android:textStyle">bold</item>
+  </style>
+  <style name="NavigationDrawerStyle">
+    <item name="android:textSize">20sp</item>
   </style>
 </resources>

@@ -5,7 +5,7 @@ namespace DogShow.Data
     public class LogingUser
     {
         [PrimaryKey]
-        public int Id => 1;
+        public int Id { get; set; }
 
         public string Login { get; set; }
 

@@ -1,32 +1,45 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
 using SQLite;
 
 namespace DogShow.Data
 {
     public class ConfigDbContext
     {
-        private const string DbPath = "user.sqlite3";
-        public string Log { get; set; }
+        private const string DbPath = "dogShow.db";
+        private static string _folder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        private readonly SQLiteAsyncConnection _sqLiteConnection = new SQLiteAsyncConnection(Path.Combine(_folder, DbPath));
 
-        public LogingUser NullUser => new LogingUser
-        {
-            Login = "null",
-            Password = "null"
-        };
+        public string Log { get; set; }
 
         public ConfigDbContext()
         {
-            if (File.Exists(DbPath)) return;
-            Log = createDatabase();
-            Log += insertUpdateData(NullUser);
+            Log = CreateDatabase();
         }
 
-        private string createDatabase()
+        private string CreateDatabase()
         {
+            var returnRes = string.Empty;
             try
             {
-                var connection = new SQLiteAsyncConnection(DbPath);
-                connection.CreateTableAsync<LogingUser>();
+                _sqLiteConnection.CreateTableAsync<LogingUser>().ContinueWith(t =>
+                {
+                    returnRes += "Table 'LogingUser' created\n";
+                });
+                _sqLiteConnection.CreateTableAsync<UserModel>().ContinueWith(t =>
+                {
+                    returnRes += "Table 'UserModel' created\n";
+                });
+                _sqLiteConnection.CreateTableAsync<DogModel>().ContinueWith(t =>
+                {
+                    returnRes += "Table 'DogModel' created\n";
+                });
+                _sqLiteConnection.CreateTableAsync<DogBattleModel>().ContinueWith(t =>
+                {
+                    returnRes += "Table 'DogBattleModel' created\n";
+                });
+
                 return "Database created";
             }
 
@@ -35,17 +48,15 @@ namespace DogShow.Data
                 return ex.Message;
             }
         }
-        private string insertUpdateData(LogingUser data)
+        private async Task UpdateData<T>(T data)
         {
             try
             {
                 var db = new SQLiteAsyncConnection(DbPath);
-                db.UpdateAsync(data);
-                return "Single data file inserted or updated";
+                await db.UpdateAsync(data);
             }
-            catch (SQLiteException ex)
+            catch (SQLiteException)
             {
-                return ex.Message;
             }
         }
         public int SelectUser(string login, string password)

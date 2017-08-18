@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Main Activity -->
+  <string name="ApplicationName">Виставка собак</string>
+  <!-- Login Activity -->
+  <string name="Auth">Авторизація</string>
+  <string name="LogSwitcher">Увійти</string>
+  <string name="RegSwitcher">Зареєструватися</string>
+  <!-- Navigation -->
+  <string name="LoginRegister">Увійти/Зареєструватися</string>
+  <string name="drawer_open">Open</string>
+  <string name="drawer_close">Close</string>
+  <string name="DogShow">Виставка собак</string>
+  <string name="HallOfFame">Зал слави</string>
+  <string name="AdminPanel">Панель адміністратора</string>
+  <string name="MyDog">Моя собака</string>
+  <string name="ExpertPanel">Панель експерта</string>
+  <!-- Login Fragment -->
+  <string name="LoginLabel">Логін</string>
+  <string name="PasswordLabel">Пароль</string>
+  <string name="LoginBtn">Увійти</string>
+</resources>

@@ -13,7 +13,7 @@ namespace DogShow.Android.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            var view = inflater.Inflate(Resource.Layout.Shows, container, false);
+            var view = inflater.Inflate(Resource.Layout.Shows_fragment, container, false);
             return view;
         }
     }
