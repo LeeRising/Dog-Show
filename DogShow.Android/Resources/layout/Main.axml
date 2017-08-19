@@ -33,7 +33,6 @@
             android:layout_gravity="start"
             android:fitsSystemWindows="true"
             fontPath="fonts/antipasto.otf"
-            app:headerLayout="@layout/nav_header"/>
+            app:headerLayout="@layout/nav_header" />
     </android.support.v4.widget.DrawerLayout>
 </LinearLayout>
-<!--app:itemTextAppearance="@style/NavigationDrawerStyle"-->

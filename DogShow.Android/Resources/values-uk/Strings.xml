@@ -3,7 +3,6 @@
   <!-- Main Activity -->
   <string name="ApplicationName">Виставка собак</string>
   <!-- Login Activity -->
-  <string name="Auth">Авторизація</string>
   <string name="LogSwitcher">Увійти</string>
   <string name="RegSwitcher">Зареєструватися</string>
   <!-- Navigation -->
@@ -15,8 +14,19 @@
   <string name="AdminPanel">Панель адміністратора</string>
   <string name="MyDog">Моя собака</string>
   <string name="ExpertPanel">Панель експерта</string>
-  <!-- Login Fragment -->
+   <!--Login Fragment--> 
   <string name="LoginLabel">Логін</string>
   <string name="PasswordLabel">Пароль</string>
   <string name="LoginBtn">Увійти</string>
+  <!--Register Fragment-->
+  <string name="Register_Login">Логін</string>
+  <string name="Register_Password">Пароль</string>
+  <string name="Register_RpPassword">Повторити пароль</string>
+  <string name="Register_Surname">Прізвище</string>
+  <string name="Register_Name">Ім\'я</string>
+  <string name="Register_Fathername">По-батькові</string>
+  <string name="Register_Passport">Паспортні дані</string>
+  <string name="Register_Club">Клуб</string>
+  <string name="Register_IsExpert">Зареєструватися як експерт?</string>
+  <string name="Register_Btn">Зареєструватися</string>
 </resources>

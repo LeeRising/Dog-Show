@@ -1,11 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <TextView
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+    android:padding="15dp">
+  <LinearLayout
+      android:layout_height="match_parent"
+       android:layout_width="match_parent"
+       android:orientation="vertical">
+    <!--Login field-->
+    <android.support.design.widget.TextInputLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:text="Register"
-        android:gravity="center" />
-</LinearLayout>
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_height="140px"
+            android:hint="@string/Register_Login"
+            android:lines="1"
+            android:layout_width="fill_parent"
+            android:id="@+id/Register_LoginEt" />
+    </android.support.design.widget.TextInputLayout>
+<!---->
+<!--Password field-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:password="true"
+            android:lines="1"
+            android:layout_height="140px"
+            android:hint="@string/Register_Password"
+            android:layout_width="match_parent"
+            android:id="@+id/Register_PasswordEt" />
+    </android.support.design.widget.TextInputLayout>
+<!---->
+<!--Repeat password field-->
+    <FrameLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content">
+        <ImageView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:id="@+id/IsPassSimpleIcon"
+            android:background="@drawable/alert" />
+      
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="fill_parent"
+            android:layout_marginRight="150px"
+            android:layout_height="wrap_content">
+            <EditText
+                android:password="true"
+                android:lines="1"
+                android:layout_height="140px"
+                android:hint="@string/Register_RpPassword"
+                android:layout_width="match_parent"
+                android:id="@+id/Register_RpPasswordEt" />
+        </android.support.design.widget.TextInputLayout>
+    </FrameLayout>
+<!---->
+<!--Surname-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:password="true"
+            android:lines="1"
+            android:layout_height="140px"
+            android:hint="@string/Register_Surname"
+            android:layout_width="match_parent"
+            android:id="@+id/Register_SurnameEt" />
+    </android.support.design.widget.TextInputLayout>
+<!---->
+<!--Name-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:password="true"
+            android:lines="1"
+            android:layout_height="140px"
+            android:hint="@string/Register_Name"
+            android:layout_width="match_parent"
+            android:id="@+id/Register_NameEt" />
+    </android.support.design.widget.TextInputLayout>
+<!---->
+<!--Fathernmame-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:password="true"
+            android:lines="1"
+            android:layout_height="140px"
+            android:hint="@string/Register_Fathername"
+            android:layout_width="match_parent"
+            android:id="@+id/Register_FatherNameEt" />
+    </android.support.design.widget.TextInputLayout>
+<!---->
+<!--Passport info-->
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:password="true"
+            android:lines="1"
+            android:layout_height="140px"
+            android:hint="@string/Register_Passport"
+            android:layout_width="match_parent"
+            android:id="@+id/Register_PassportEt" />
+    </android.support.design.widget.TextInputLayout>
+<!---->
+<!--Club name-->
+  <Spinner
+     android:layout_height="140px"
+      android:layout_width="fill_parent"
+      android:id="@+id/Register_clubSelector"/>
+<!---->
+<!--Register as expert-->
+    <CheckBox
+        android:layout_width="fill_parent"
+        android:layout_height="140px"
+        android:text="@string/Register_IsExpert"
+        android:id="@+id/Register_isExpert" />
+<!---->
+    
+    <!--Register button-->
+    <Button
+       android:layout_height="140px"
+       android:layout_width="fill_parent"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/texts"
+        android:id="@+id/SenrRegiterInfo"
+       android:text="@string/Register_Btn"/>
+    <!---->
+  </LinearLayout>
+</ScrollView>

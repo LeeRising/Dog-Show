@@ -3,7 +3,6 @@
   <!-- Main Activity -->
   <string name="ApplicationName">Dogs Show</string>
   <!-- Login Activity -->
-  <string name="Auth">Authorize</string>
   <string name="LogSwitcher">Login</string>
   <string name="RegSwitcher">Register</string>
   <!-- Navigation -->
@@ -19,4 +18,15 @@
   <string name="LoginLabel">Login</string>
   <string name="PasswordLabel">Password</string>
   <string name="LoginBtn">Login</string>
+  <!--Register Fragment-->
+  <string name="Register_Login">Login</string>
+  <string name="Register_Password">Password</string>
+  <string name="Register_RpPassword">Repeat password</string>
+  <string name="Register_Surname">Last Name</string>
+  <string name="Register_Name">First Name</string>
+  <string name="Register_Fathername">Father Name</string>
+  <string name="Register_Passport">Passport info</string>
+  <string name="Register_Club">Club</string>
+  <string name="Register_IsExpert">Register as expert?</string>
+  <string name="Register_Btn">Register</string>
 </resources>

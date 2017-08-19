@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Android", "DogShow.Android\DogShow.Android.csproj", "{EFA359D7-0FAA-4AB8-81E6-1516852D1348}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Data", "DogShow.Data\DogShow.Data.csproj", "{15A29F4C-7383-43F8-B83C-6728041EA29B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Server", "DogShow.Server\DogShow.Server.csproj", "{5C4B80D0-91EE-439B-B943-3A07ED826685}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,8 +25,15 @@ Global
 		{15A29F4C-7383-43F8-B83C-6728041EA29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15A29F4C-7383-43F8-B83C-6728041EA29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15A29F4C-7383-43F8-B83C-6728041EA29B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C4B80D0-91EE-439B-B943-3A07ED826685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C4B80D0-91EE-439B-B943-3A07ED826685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C4B80D0-91EE-439B-B943-3A07ED826685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C4B80D0-91EE-439B-B943-3A07ED826685}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5F96A9C-E76B-4E22-9CD0-4386FEECF01C}
 	EndGlobalSection
 EndGlobal

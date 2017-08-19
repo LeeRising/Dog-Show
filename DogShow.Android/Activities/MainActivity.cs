@@ -84,7 +84,7 @@ namespace DogShow.Android
             _loginRegiserTv.Typeface = typeface;
             _loginRegiserTv.Click += delegate
             {
-                StartActivity(typeof(LoginRegisterActivity));
+                StartActivity(typeof(AuthActivity));
             };
         }
 
