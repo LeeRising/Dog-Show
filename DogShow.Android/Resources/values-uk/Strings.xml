@@ -29,4 +29,8 @@
   <string name="Register_Club">Клуб</string>
   <string name="Register_IsExpert">Зареєструватися як експерт?</string>
   <string name="Register_Btn">Зареєструватися</string>
+  <!--Error message-->
+  <string name="ErrorMessageEmptyField">Поле не повинно бути порожнім!</string>
+  <string name="ErrorMessagePassEquel">Паролі повинні співпадати!</string>
+  <string name="ErrorMessagePassLenght">Довжина пароля повинна мати більше 8 символів!</string>
 </resources>

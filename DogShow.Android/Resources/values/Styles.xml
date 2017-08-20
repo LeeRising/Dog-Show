@@ -1,10 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-    <item name="colorPrimary">#2196F3</item>
-    <item name="colorPrimaryDark">#1976D2</item>
+    <item name="colorPrimary">@color/accent</item>
+    <item name="colorPrimaryDark">@color/primary_dark</item>
+    <item name="colorAccent">@color/primary_dark</item>
     <item name="android:windowBackground">@color/window_background</item>
-    <item name="android:fontFamily">sans-serif-light</item>
+    <item name="android:divider">@color/divider</item>
+    <item name="android:keyTextColor">@color/texts</item>
+    <!--navigationBarColor--> 
   </style>
   <style name="NavigationDrawerStyle">
     <item name="android:textSize">20sp</item>

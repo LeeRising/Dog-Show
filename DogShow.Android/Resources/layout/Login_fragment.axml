@@ -5,45 +5,46 @@
     android:orientation="vertical"
     android:padding="15dp"
     android:gravity="center">
-  <android.support.design.widget.TextInputLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-    <EditText
-        android:layout_height="140px"
-      android:lines="1"
-        android:hint="@string/LoginLabel"
-        android:layout_width="fill_parent"
-        android:id="@+id/LoginEt">
-    </EditText>
-  </android.support.design.widget.TextInputLayout>
-  <FrameLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content">
-    <CheckBox
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="right"
-        android:id="@+id/IsShowPass"
-        android:checked="false"
-        android:button="@drawable/show_pass_selector" />
     <android.support.design.widget.TextInputLayout
-        android:layout_width="fill_parent"
-        android:layout_marginRight="150px"
+        android:id="@+id/LoginWraper"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
-      <EditText
-          android:password="true"
-        android:lines="1"
-          android:layout_height="fill_parent"
-          android:hint="@string/PasswordLabel"
-          android:layout_width="match_parent"
-          android:id="@+id/PasswordEt" />
+        <EditText
+            android:layout_height="140px"
+            android:singleLine="true"
+            android:hint="@string/LoginLabel"
+            android:layout_width="fill_parent"
+            android:id="@+id/LoginEt" />
     </android.support.design.widget.TextInputLayout>
-  </FrameLayout>
-  <Button
-      android:layout_height="140px"
-      android:hint="@string/LoginBtn"
-      android:background="@drawable/roundedbutton"
-      android:layout_width="fill_parent"
-      android:textColor="@color/texts"
-      android:id="@+id/LoginBtn" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="right"
+            android:id="@+id/IsShowPass"
+            android:checked="false"
+            android:button="@drawable/show_pass_selector" />
+      <android.support.design.widget.TextInputLayout
+            android:id="@+id/PassWraper"
+            android:layout_width="fill_parent"
+            android:layout_marginRight="150px"
+            android:layout_height="wrap_content">
+            <EditText
+                android:password="true"
+                android:singleLine="true"
+                android:layout_height="fill_parent"
+                android:hint="@string/PasswordLabel"
+                android:layout_width="match_parent"
+                android:id="@+id/PasswordEt" />
+        </android.support.design.widget.TextInputLayout>
+    </FrameLayout>
+    <Button
+        android:layout_height="140px"
+        android:hint="@string/LoginBtn"
+        android:background="@drawable/roundedbutton"
+        android:layout_width="fill_parent"
+        android:textColor="@color/texts"
+        android:id="@+id/LoginBtn" />
 </LinearLayout>

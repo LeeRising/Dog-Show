@@ -4,13 +4,16 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.Design.Widget;
+using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
 using Android.Widget;
 using DogShow.Android.Fragments;
+using Java.Lang;
 using UK.CO.Chrisjenx.Calligraphy;
 using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using SupportFragment = Android.Support.V4.App.Fragment;
+using SupportFragmentManager = Android.Support.V4.App.FragmentManager;
 
 namespace DogShow.Android
 {
@@ -18,8 +21,6 @@ namespace DogShow.Android
     public class AuthActivity : AppCompatActivity
     {
         private SupportFragment _loginFragment, _registerFragment;
-        private readonly Dictionary<string, SupportFragment> _loginRegisterFragments = new Dictionary<string, SupportFragment>();
-        private Button _logRegButton;
         //Snackbar.Make(anchor, "Yay Snackbar!!", Snackbar.LengthLong)
         //.SetAction("Action", v =>
         //{
@@ -43,38 +44,51 @@ namespace DogShow.Android
 
             _loginFragment = new LoginFragment();
             _registerFragment = new RegisterFragment();
-
-            var loginLabel = GetString(Resource.String.LogSwitcher);
-            var registerLabel = GetString(Resource.String.RegSwitcher);
-
-            _loginRegisterFragments.Add(loginLabel,_loginFragment);
-            _loginRegisterFragments.Add(registerLabel, _registerFragment);
-
-            _logRegButton = FindViewById<Button>(Resource.Id.logreg_switcher);
-            _logRegButton.Click += delegate
-            {
-                SupportFragmentManager.BeginTransaction()
-                    .SetCustomAnimations(Resource.Animation.slide_in, Resource.Animation.slide_out, Resource.Animation.slide_in, Resource.Animation.slide_out)
-                    .Replace(Resource.Id.auth_frame_container, _loginRegisterFragments[_logRegButton.Text], _logRegButton.Text)
-                    .Commit();
-                Title = _logRegButton.Text;
-                _logRegButton.Text = _logRegButton.Text == registerLabel ? loginLabel : registerLabel;
-            };
-
-            SupportFragmentManager.BeginTransaction()
-                .Replace(Resource.Id.auth_frame_container, _loginFragment, "Login Window")
-                .Commit();
+            SetUpViewPager();
         }
         protected override void AttachBaseContext(Context @base)
         {
             base.AttachBaseContext(CalligraphyContextWrapper.Wrap(@base));
         }
 
-        private void TabPagerSetter()
+        private void SetUpViewPager()
         {
             var viewPager = FindViewById<ViewPager>(Resource.Id.viewpager);
-            var tabs = FindViewById<TabLayout>(Resource.Id.tabs);
+            var tabs = FindViewById<TabLayout>(Resource.Id.authtabs);
+            var adapter = new TabAdapter(SupportFragmentManager);
+            adapter.AddFragment(_loginFragment, GetString(Resource.String.LogSwitcher));
+            adapter.AddFragment(_registerFragment, GetString(Resource.String.RegSwitcher));
+            viewPager.Adapter = adapter;
             tabs.SetupWithViewPager(viewPager);
+        }
+    }
+    public class TabAdapter : FragmentPagerAdapter
+    {
+        public List<SupportFragment> Fragments { get; set; }
+        public List<string> FragmentNames { get; set; }
+
+        public TabAdapter(SupportFragmentManager sfm) : base(sfm)
+        {
+            Fragments = new List<SupportFragment>();
+            FragmentNames = new List<string>();
+        }
+
+        public void AddFragment(SupportFragment fragment, string name)
+        {
+            Fragments.Add(fragment);
+            FragmentNames.Add(name);
+        }
+
+        public override int Count => Fragments.Count;
+
+        public override SupportFragment GetItem(int position)
+        {
+            return Fragments[position];
+        }
+
+        public override ICharSequence GetPageTitleFormatted(int position)
+        {
+            return new Java.Lang.String(FragmentNames[position]);
         }
     }
 }

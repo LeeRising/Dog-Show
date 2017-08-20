@@ -2267,53 +2267,74 @@ namespace DogShow.Android
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f0700a5
-			public const int IsPassSimpleIcon = 2131165349;
+			// aapt resource value: 0x7f070086
+			public const int IsShowPass = 2131165318;
+			
+			// aapt resource value: 0x7f070089
+			public const int LoginBtn = 2131165321;
 			
 			// aapt resource value: 0x7f070085
-			public const int IsShowPass = 2131165317;
-			
-			// aapt resource value: 0x7f070087
-			public const int LoginBtn = 2131165319;
+			public const int LoginEt = 2131165317;
 			
 			// aapt resource value: 0x7f070084
-			public const int LoginEt = 2131165316;
-			
-			// aapt resource value: 0x7f070086
-			public const int PasswordEt = 2131165318;
-			
-			// aapt resource value: 0x7f0700a9
-			public const int Register_FatherNameEt = 2131165353;
-			
-			// aapt resource value: 0x7f0700a3
-			public const int Register_LoginEt = 2131165347;
-			
-			// aapt resource value: 0x7f0700a8
-			public const int Register_NameEt = 2131165352;
-			
-			// aapt resource value: 0x7f0700aa
-			public const int Register_PassportEt = 2131165354;
-			
-			// aapt resource value: 0x7f0700a4
-			public const int Register_PasswordEt = 2131165348;
-			
-			// aapt resource value: 0x7f0700a6
-			public const int Register_RpPasswordEt = 2131165350;
-			
-			// aapt resource value: 0x7f0700a7
-			public const int Register_SurnameEt = 2131165351;
-			
-			// aapt resource value: 0x7f0700ab
-			public const int Register_clubSelector = 2131165355;
-			
-			// aapt resource value: 0x7f0700ac
-			public const int Register_isExpert = 2131165356;
+			public const int LoginWraper = 2131165316;
 			
 			// aapt resource value: 0x7f0700ad
-			public const int SenrRegiterInfo = 2131165357;
+			public const int NameWraper = 2131165357;
 			
-			// aapt resource value: 0x7f07008f
-			public const int action0 = 2131165327;
+			// aapt resource value: 0x7f070087
+			public const int PassWraper = 2131165319;
+			
+			// aapt resource value: 0x7f0700b0
+			public const int PassportInfoWraper = 2131165360;
+			
+			// aapt resource value: 0x7f070088
+			public const int PasswordEt = 2131165320;
+			
+			// aapt resource value: 0x7f0700a5
+			public const int RegLoginWraper = 2131165349;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int RegPassWraper = 2131165351;
+			
+			// aapt resource value: 0x7f0700af
+			public const int Register_FatherNameEt = 2131165359;
+			
+			// aapt resource value: 0x7f0700a6
+			public const int Register_LoginEt = 2131165350;
+			
+			// aapt resource value: 0x7f0700ae
+			public const int Register_NameEt = 2131165358;
+			
+			// aapt resource value: 0x7f0700b1
+			public const int Register_PassportEt = 2131165361;
+			
+			// aapt resource value: 0x7f0700a8
+			public const int Register_PasswordEt = 2131165352;
+			
+			// aapt resource value: 0x7f0700aa
+			public const int Register_RpPasswordEt = 2131165354;
+			
+			// aapt resource value: 0x7f0700ac
+			public const int Register_SurnameEt = 2131165356;
+			
+			// aapt resource value: 0x7f0700b2
+			public const int Register_clubSelector = 2131165362;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int Register_isExpert = 2131165363;
+			
+			// aapt resource value: 0x7f0700a9
+			public const int RpPassWraper = 2131165353;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int SendRegiterInfo = 2131165364;
+			
+			// aapt resource value: 0x7f0700ab
+			public const int SurnameWraper = 2131165355;
+			
+			// aapt resource value: 0x7f070091
+			public const int action0 = 2131165329;
 			
 			// aapt resource value: 0x7f070065
 			public const int action_bar = 2131165285;
@@ -2336,17 +2357,17 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070042
 			public const int action_bar_title = 2131165250;
 			
-			// aapt resource value: 0x7f07008c
-			public const int action_container = 2131165324;
+			// aapt resource value: 0x7f07008e
+			public const int action_container = 2131165326;
 			
 			// aapt resource value: 0x7f070066
 			public const int action_context_bar = 2131165286;
 			
-			// aapt resource value: 0x7f070093
-			public const int action_divider = 2131165331;
+			// aapt resource value: 0x7f070095
+			public const int action_divider = 2131165333;
 			
-			// aapt resource value: 0x7f07008d
-			public const int action_image = 2131165325;
+			// aapt resource value: 0x7f07008f
+			public const int action_image = 2131165327;
 			
 			// aapt resource value: 0x7f070003
 			public const int action_menu_divider = 2131165187;
@@ -2363,11 +2384,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070044
 			public const int action_mode_close_button = 2131165252;
 			
-			// aapt resource value: 0x7f07008e
-			public const int action_text = 2131165326;
+			// aapt resource value: 0x7f070090
+			public const int action_text = 2131165328;
 			
-			// aapt resource value: 0x7f07009c
-			public const int actions = 2131165340;
+			// aapt resource value: 0x7f07009e
+			public const int actions = 2131165342;
 			
 			// aapt resource value: 0x7f070045
 			public const int activity_chooser_view_content = 2131165253;
@@ -2384,11 +2405,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070024
 			public const int always = 2131165220;
 			
-			// aapt resource value: 0x7f0700af
-			public const int appbar = 2131165359;
+			// aapt resource value: 0x7f0700b6
+			public const int appbar = 2131165366;
 			
-			// aapt resource value: 0x7f070075
-			public const int auth_frame_container = 2131165301;
+			// aapt resource value: 0x7f070074
+			public const int authtabs = 2131165300;
 			
 			// aapt resource value: 0x7f070030
 			public const int auto = 2131165232;
@@ -2405,8 +2426,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07000f
 			public const int calligraphy_tag_id = 2131165199;
 			
-			// aapt resource value: 0x7f070090
-			public const int cancel_action = 2131165328;
+			// aapt resource value: 0x7f070092
+			public const int cancel_action = 2131165330;
 			
 			// aapt resource value: 0x7f070031
 			public const int center = 2131165233;
@@ -2420,8 +2441,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07005c
 			public const int checkbox = 2131165276;
 			
-			// aapt resource value: 0x7f070098
-			public const int chronometer = 2131165336;
+			// aapt resource value: 0x7f07009a
+			public const int chronometer = 2131165338;
 			
 			// aapt resource value: 0x7f07003a
 			public const int clip_horizontal = 2131165242;
@@ -2471,8 +2492,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070013
 			public const int disableHome = 2131165203;
 			
-			// aapt resource value: 0x7f070088
-			public const int drawer_layout = 2131165320;
+			// aapt resource value: 0x7f07008a
+			public const int drawer_layout = 2131165322;
 			
 			// aapt resource value: 0x7f070067
 			public const int edit_query = 2131165287;
@@ -2480,8 +2501,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070022
 			public const int end = 2131165218;
 			
-			// aapt resource value: 0x7f0700a2
-			public const int end_padder = 2131165346;
+			// aapt resource value: 0x7f0700a4
+			public const int end_padder = 2131165348;
 			
 			// aapt resource value: 0x7f07002b
 			public const int enterAlways = 2131165227;
@@ -2510,8 +2531,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070040
 			public const int @fixed = 2131165248;
 			
-			// aapt resource value: 0x7f070089
-			public const int frame_content_container = 2131165321;
+			// aapt resource value: 0x7f07008b
+			public const int frame_content_container = 2131165323;
 			
 			// aapt resource value: 0x7f070005
 			public const int home = 2131165189;
@@ -2522,8 +2543,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07004a
 			public const int icon = 2131165258;
 			
-			// aapt resource value: 0x7f07009d
-			public const int icon_group = 2131165341;
+			// aapt resource value: 0x7f07009f
+			public const int icon_group = 2131165343;
 			
 			// aapt resource value: 0x7f070026
 			public const int ifRoom = 2131165222;
@@ -2531,8 +2552,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070047
 			public const int image = 2131165255;
 			
-			// aapt resource value: 0x7f070099
-			public const int info = 2131165337;
+			// aapt resource value: 0x7f07009b
+			public const int info = 2131165339;
 			
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
@@ -2543,11 +2564,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070035
 			public const int left = 2131165237;
 			
-			// aapt resource value: 0x7f07009e
-			public const int line1 = 2131165342;
-			
 			// aapt resource value: 0x7f0700a0
-			public const int line3 = 2131165344;
+			public const int line1 = 2131165344;
+			
+			// aapt resource value: 0x7f0700a2
+			public const int line3 = 2131165346;
 			
 			// aapt resource value: 0x7f070010
 			public const int listMode = 2131165200;
@@ -2555,17 +2576,14 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070049
 			public const int list_item = 2131165257;
 			
-			// aapt resource value: 0x7f070074
-			public const int logreg_switcher = 2131165300;
+			// aapt resource value: 0x7f0700b5
+			public const int main_content = 2131165365;
 			
-			// aapt resource value: 0x7f0700ae
-			public const int main_content = 2131165358;
+			// aapt resource value: 0x7f0700b9
+			public const int masked = 2131165369;
 			
-			// aapt resource value: 0x7f0700b2
-			public const int masked = 2131165362;
-			
-			// aapt resource value: 0x7f070092
-			public const int media_actions = 2131165330;
+			// aapt resource value: 0x7f070094
+			public const int media_actions = 2131165332;
 			
 			// aapt resource value: 0x7f070023
 			public const int middle = 2131165219;
@@ -2576,26 +2594,26 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07001a
 			public const int multiply = 2131165210;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int nav_adminPanel = 2131165365;
+			// aapt resource value: 0x7f0700bc
+			public const int nav_adminPanel = 2131165372;
 			
-			// aapt resource value: 0x7f0700b3
-			public const int nav_dogShow = 2131165363;
+			// aapt resource value: 0x7f0700ba
+			public const int nav_dogShow = 2131165370;
 			
-			// aapt resource value: 0x7f0700b7
-			public const int nav_expertPanel = 2131165367;
+			// aapt resource value: 0x7f0700be
+			public const int nav_expertPanel = 2131165374;
 			
-			// aapt resource value: 0x7f0700b4
-			public const int nav_hallOfFame = 2131165364;
+			// aapt resource value: 0x7f0700bb
+			public const int nav_hallOfFame = 2131165371;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int nav_myDog = 2131165366;
+			// aapt resource value: 0x7f0700bd
+			public const int nav_myDog = 2131165373;
 			
-			// aapt resource value: 0x7f07008a
-			public const int nav_view = 2131165322;
+			// aapt resource value: 0x7f07008c
+			public const int nav_view = 2131165324;
 			
-			// aapt resource value: 0x7f07008b
-			public const int navheader_logreg = 2131165323;
+			// aapt resource value: 0x7f07008d
+			public const int navheader_logreg = 2131165325;
 			
 			// aapt resource value: 0x7f07007e
 			public const int navigation_header_container = 2131165310;
@@ -2609,14 +2627,14 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070011
 			public const int normal = 2131165201;
 			
-			// aapt resource value: 0x7f07009b
-			public const int notification_background = 2131165339;
+			// aapt resource value: 0x7f07009d
+			public const int notification_background = 2131165341;
 			
-			// aapt resource value: 0x7f070095
-			public const int notification_main_column = 2131165333;
+			// aapt resource value: 0x7f070097
+			public const int notification_main_column = 2131165335;
 			
-			// aapt resource value: 0x7f070094
-			public const int notification_main_column_container = 2131165332;
+			// aapt resource value: 0x7f070096
+			public const int notification_main_column_container = 2131165334;
 			
 			// aapt resource value: 0x7f070038
 			public const int parallax = 2131165240;
@@ -2639,11 +2657,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070036
 			public const int right = 2131165238;
 			
-			// aapt resource value: 0x7f07009a
-			public const int right_icon = 2131165338;
+			// aapt resource value: 0x7f07009c
+			public const int right_icon = 2131165340;
 			
-			// aapt resource value: 0x7f070096
-			public const int right_side = 2131165334;
+			// aapt resource value: 0x7f070098
+			public const int right_side = 2131165336;
 			
 			// aapt resource value: 0x7f07001b
 			public const int screen = 2131165211;
@@ -2738,8 +2756,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070037
 			public const int start = 2131165239;
 			
-			// aapt resource value: 0x7f070091
-			public const int status_bar_latest_event_content = 2131165329;
+			// aapt resource value: 0x7f070093
+			public const int status_bar_latest_event_content = 2131165331;
 			
 			// aapt resource value: 0x7f07005f
 			public const int submenuarrow = 2131165279;
@@ -2750,11 +2768,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070012
 			public const int tabMode = 2131165202;
 			
-			// aapt resource value: 0x7f0700a1
-			public const int text = 2131165345;
+			// aapt resource value: 0x7f0700a3
+			public const int text = 2131165347;
 			
-			// aapt resource value: 0x7f07009f
-			public const int text2 = 2131165343;
+			// aapt resource value: 0x7f0700a1
+			public const int text2 = 2131165345;
 			
 			// aapt resource value: 0x7f070053
 			public const int textSpacerNoButtons = 2131165267;
@@ -2771,8 +2789,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07000d
 			public const int textinput_error = 2131165197;
 			
-			// aapt resource value: 0x7f070097
-			public const int time = 2131165335;
+			// aapt resource value: 0x7f070099
+			public const int time = 2131165337;
 			
 			// aapt resource value: 0x7f07004b
 			public const int title = 2131165259;
@@ -2783,8 +2801,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070058
 			public const int title_template = 2131165272;
 			
-			// aapt resource value: 0x7f0700b0
-			public const int toolbar = 2131165360;
+			// aapt resource value: 0x7f0700b7
+			public const int toolbar = 2131165367;
 			
 			// aapt resource value: 0x7f07002a
 			public const int top = 2131165226;
@@ -2810,8 +2828,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07000e
 			public const int view_offset_helper = 2131165198;
 			
-			// aapt resource value: 0x7f0700b1
-			public const int visible = 2131165361;
+			// aapt resource value: 0x7f070075
+			public const int viewpager = 2131165301;
+			
+			// aapt resource value: 0x7f0700b8
+			public const int visible = 2131165368;
 			
 			// aapt resource value: 0x7f070028
 			public const int withText = 2131165224;
@@ -3122,6 +3143,15 @@ namespace DogShow.Android
 			
 			// aapt resource value: 0x7f08002f
 			public const int DogShow = 2131230767;
+			
+			// aapt resource value: 0x7f080041
+			public const int ErrorMessageEmptyField = 2131230785;
+			
+			// aapt resource value: 0x7f080042
+			public const int ErrorMessagePassEquel = 2131230786;
+			
+			// aapt resource value: 0x7f080043
+			public const int ErrorMessagePassLenght = 2131230787;
 			
 			// aapt resource value: 0x7f080033
 			public const int ExpertPanel = 2131230771;

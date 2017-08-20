@@ -29,4 +29,8 @@
   <string name="Register_Club">Club</string>
   <string name="Register_IsExpert">Register as expert?</string>
   <string name="Register_Btn">Register</string>
+  <!--Error message-->
+  <string name="ErrorMessageEmptyField">Field must not be empty!</string>
+  <string name="ErrorMessagePassEquel">Password`s must be indentical!</string>
+  <string name="ErrorMessagePassLenght">Password length must have more than 8 chars!</string>
 </resources>
