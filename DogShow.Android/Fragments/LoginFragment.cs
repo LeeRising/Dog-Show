@@ -29,22 +29,23 @@ namespace DogShow.Android.Fragments
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
-
-            _loginEt = Activity.FindViewById<EditText>(Resource.Id.LoginEt);
-            _passEt = Activity.FindViewById<EditText>(Resource.Id.PasswordEt);
-            _loginBtn = Activity.FindViewById<Button>(Resource.Id.LoginBtn);
-            _isShowPass = Activity.FindViewById<CheckBox>(Resource.Id.IsShowPass);
-
-            _loginWraper = Activity.FindViewById<TextInputLayout>(Resource.Id.LoginWraper);
-            _passWraper = Activity.FindViewById<TextInputLayout>(Resource.Id.PassWraper);
-
             _loginBtn.Click += LoginClick;
-
+            ComponentsInit();
             _isShowPass.CheckedChange += delegate
             {
                 _passEt.InputType = _isShowPass.Checked ? InputTypes.TextVariationVisiblePassword | InputTypes.ClassText : InputTypes.TextVariationPassword | InputTypes.ClassText;
                 _passEt.SetSelection(_passEt.Length());
             };
+        }
+
+        private void ComponentsInit()
+        {
+            _loginEt = Activity.FindViewById<EditText>(Resource.Id.LoginEt);
+            _passEt = Activity.FindViewById<EditText>(Resource.Id.PasswordEt);
+            _loginBtn = Activity.FindViewById<Button>(Resource.Id.LoginBtn);
+            _isShowPass = Activity.FindViewById<CheckBox>(Resource.Id.IsShowPass);
+            _loginWraper = Activity.FindViewById<TextInputLayout>(Resource.Id.LoginWraper);
+            _passWraper = Activity.FindViewById<TextInputLayout>(Resource.Id.PassWraper);
         }
 
         private void LoginClick(object sender, EventArgs e)

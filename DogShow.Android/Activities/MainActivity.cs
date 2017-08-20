@@ -38,7 +38,7 @@ namespace DogShow.Android
                 .SetDefaultFontPath("fonts/antipasto.otf")
                 .SetFontAttrId(Resource.Attribute.fontPath)
                 .Build());
-            Initializer();
+            Componentsinit();
             DictionaryCreate();
         }
 
@@ -53,7 +53,7 @@ namespace DogShow.Android
             return true;
         }
 
-        private void Initializer()
+        private void Componentsinit()
         {
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
