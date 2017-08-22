@@ -4,12 +4,69 @@ using MySql.Data.MySqlClient;
 
 namespace DogShow.Data.DataDb
 {
-    public static class GetData
+    public class GetData
     {
-        private static readonly MySqlConnection Connection = new MySqlConnection($"Data Source={Constans.ServerIp};User Id={Constans.User};Password={Constans.Password};Database={Constans.DbName};Convert Zero Datetime=True");
-        private static MySqlCommand Command { get; set; }
+        private readonly MySqlConnection Connection = new MySqlConnection($"Data Source={Constans.ServerIp};User Id={Constans.User};Password={Constans.Password};Database={Constans.DbName};Convert Zero Datetime=True");
+        private MySqlCommand Command { get; set; }
 
-        public static async Task<UserModel> GetLoginUser(string login, string hashPassword)
+        public UserModel GetLoginUser(object login, object hashPassword)
+        {
+            try
+            {
+                using (Connection)
+                {
+                    Connection.OpenAsync();
+                    Command = new MySqlCommand("SELECT guid,rights FROM users WHERE login=@login AND password=@hashPassword", Connection);
+                    Command.Parameters.AddWithValue("login", login);
+                    Command.Parameters.AddWithValue("hashPassword", hashPassword);
+                    var usersReader = Command.ExecuteReader();
+                    if (usersReader == null) return null;
+                    string guid, rights, club = string.Empty, expertState = string.Empty;
+                    using (usersReader)
+                    {
+                        usersReader.ReadAsync();
+                        guid = usersReader[0] as string;
+                        rights = usersReader[1] as string;
+                    }
+                    Command = new MySqlCommand($"SELECT Request,Club_id FROM experts WHERE guid='{guid}'", Connection);
+                    var expertReader = Command.ExecuteReader();
+                    if (expertReader != null)
+                    {
+                        object clubId;
+                        using (expertReader)
+                        {
+                            expertReader.ReadAsync();
+                            clubId = expertReader[1];
+                            expertState = expertReader[0] as string;
+                        }
+                        Command = new MySqlCommand($"SELECT Club_name FROM clubs WHERE id='{clubId}'", Connection);
+                        club = Command.ExecuteScalar() as string;
+                    }
+                    Command = new MySqlCommand($"SELECT Name,Surname,Fathername,Passport_info FROM masters WHERE guid='{guid}'", Connection);
+                    var dataReader = Command.ExecuteReader();
+                    using (dataReader)
+                    {
+                        dataReader.ReadAsync();
+                        return new UserModel
+                        {
+                            Guid = guid,
+                            Name = dataReader["Name"] as string,
+                            Surname = dataReader["Surname"] as string,
+                            Fathername = dataReader["Fathername"] as string,
+                            PassportInfo = dataReader["Passport_info"] as string,
+                            Rights = rights,
+                            ExpertState = expertState,
+                            ClubName = club
+                        };
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public async Task<UserModel> GetLoginUser(string login, string hashPassword)
         {
             try
             {
@@ -66,7 +123,7 @@ namespace DogShow.Data.DataDb
                 return null;
             }
         }
-        public static async Task<object> RegisterNewUser(UserModel registerUserModel, string login, string hashPassword)
+        public async Task<object> RegisterNewUser(UserModel registerUserModel, object login, object hashPassword)
         {
             try
             {
@@ -102,7 +159,7 @@ namespace DogShow.Data.DataDb
                 return e;
             }
         }
-        public static async Task<object> RegisterNewDog(DogModel registerDogModel,string guid)
+        public async Task<object> RegisterNewDog(DogModel registerDogModel, object guid)
         {
             try
             {
@@ -133,7 +190,7 @@ namespace DogShow.Data.DataDb
                 return e;
             }
         }
-        public static async Task<object> UpdatePassword(string hashPassword,string guid)
+        public async Task<object> UpdatePassword(string hashPassword, object guid)
         {
             try
             {
@@ -152,7 +209,7 @@ namespace DogShow.Data.DataDb
                 return e;
             }
         }
-        public static async Task<object> UpdateDogInfo(DogModel updateDogModel)
+        public async Task<object> UpdateDogInfo(DogModel updateDogModel)
         {
             try
             {

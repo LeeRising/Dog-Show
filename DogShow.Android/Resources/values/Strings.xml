@@ -18,6 +18,10 @@
   <string name="LoginLabel">Login</string>
   <string name="PasswordLabel">Password</string>
   <string name="LoginBtn">Login</string>
+  <string name="LoginInProgressMes">Login In Progress</string>
+  <string name="LoginPlsWaitMes">Please wait...</string>
+  <string name="LoginSuccesMes">Login Successful</string>
+  <string name="LoginErrorMes">Wrong login or password!</string>
   <!--Register Fragment-->
   <string name="Register_Login">Login</string>
   <string name="Register_Password">Password</string>

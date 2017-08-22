@@ -14,7 +14,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content">
         <EditText
-            android:layout_height="140px"
+            android:layout_height="wrap_content"
             android:hint="@string/Register_Login"
             android:singleLine="true"
             android:layout_width="fill_parent"
@@ -29,7 +29,7 @@
         <EditText
             android:password="true"
             android:singleLine="true"
-            android:layout_height="140px"
+            android:layout_height="wrap_content"
             android:hint="@string/Register_Password"
             android:layout_width="match_parent"
             android:id="@+id/Register_PasswordEt" />
@@ -43,7 +43,7 @@
             <EditText
                 android:password="true"
                 android:singleLine="true"
-                android:layout_height="140px"
+                android:layout_height="wrap_content"
                 android:hint="@string/Register_RpPassword"
                 android:layout_width="match_parent"
                 android:id="@+id/Register_RpPasswordEt" />
@@ -57,7 +57,7 @@
         <EditText
             android:inputType="textCapSentences"
             android:singleLine="true"
-            android:layout_height="140px"
+            android:layout_height="wrap_content"
             android:hint="@string/Register_Surname"
             android:layout_width="match_parent"
             android:id="@+id/Register_SurnameEt" />
@@ -71,7 +71,7 @@
         <EditText
             android:inputType="textCapSentences"
             android:singleLine="true"
-            android:layout_height="140px"
+            android:layout_height="wrap_content"
             android:hint="@string/Register_Name"
             android:layout_width="match_parent"
             android:id="@+id/Register_NameEt" />
@@ -84,7 +84,7 @@
         <EditText
             android:inputType="textCapSentences"
             android:singleLine="true"
-            android:layout_height="140px"
+            android:layout_height="wrap_content"
             android:hint="@string/Register_Fathername"
             android:layout_width="match_parent"
             android:id="@+id/Register_FatherNameEt" />
@@ -98,7 +98,7 @@
         <EditText
             android:inputType="textCapSentences"
             android:singleLine="true"
-            android:layout_height="140px"
+            android:layout_height="wrap_content"
             android:hint="@string/Register_Passport"
             android:layout_width="match_parent"
             android:id="@+id/Register_PassportEt" />
@@ -106,21 +106,21 @@
 <!---->
 <!--Club name-->
     <Spinner
-       android:layout_height="140px"
+       android:layout_height="wrap_content"
       android:layout_width="fill_parent"
       android:id="@+id/Register_clubSelector"/>
 <!---->
 <!--Register as expert-->
     <CheckBox
         android:layout_width="fill_parent"
-        android:layout_height="140px"
+        android:layout_height="wrap_content"
         android:text="@string/Register_IsExpert"
         android:id="@+id/Register_isExpert" />
 <!---->
     
     <!--Register button-->
     <Button
-       android:layout_height="140px"
+       android:layout_height="wrap_content"
        android:layout_width="fill_parent"
         android:background="@drawable/roundedbutton"
         android:textColor="@color/texts"

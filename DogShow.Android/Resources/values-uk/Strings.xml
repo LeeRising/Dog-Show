@@ -17,7 +17,10 @@
    <!--Login Fragment--> 
   <string name="LoginLabel">Логін</string>
   <string name="PasswordLabel">Пароль</string>
-  <string name="LoginBtn">Увійти</string>
+  <string name="LoginInProgressMes">Встановлюється зєднаня</string>
+  <string name="LoginPlsWaitMes">Зачекайте будь ласка...</string>
+  <string name="LoginSuccesMes">Логін та пароль приняті</string>
+  <string name="LoginErrorMes">Неправильний логін або пароль!</string>
   <!--Register Fragment-->
   <string name="Register_Login">Логін</string>
   <string name="Register_Password">Пароль</string>
