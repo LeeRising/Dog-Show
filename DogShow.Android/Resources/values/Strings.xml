@@ -33,6 +33,7 @@
   <string name="Register_Club">Club</string>
   <string name="Register_IsExpert">Register as expert?</string>
   <string name="Register_Btn">Register</string>
+  <string name="Register_LoginExist">Login {existLogin} already exist!</string>
   <!--Error message-->
   <string name="ErrorMessageEmptyField">Field must not be empty!</string>
   <string name="ErrorMessagePassEquel">Password`s must be indentical!</string>

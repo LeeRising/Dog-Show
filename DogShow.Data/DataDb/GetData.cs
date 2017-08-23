@@ -1,22 +1,22 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 
 namespace DogShow.Data.DataDb
 {
     public class GetData
     {
-        private readonly MySqlConnection Connection = new MySqlConnection($"Data Source={Constans.ServerIp};User Id={Constans.User};Password={Constans.Password};Database={Constans.DbName};Convert Zero Datetime=True");
+        private readonly MySqlConnection _connection = new MySqlConnection($"Data Source={Constans.ServerIp};User Id={Constans.User};Password={Constans.Password};Database={Constans.DbName};Convert Zero Datetime=True");
         private MySqlCommand Command { get; set; }
 
         public UserModel GetLoginUser(object login, object hashPassword)
         {
             try
             {
-                using (Connection)
+                using (_connection)
                 {
-                    Connection.OpenAsync();
-                    Command = new MySqlCommand("SELECT guid,rights FROM users WHERE login=@login AND password=@hashPassword", Connection);
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand("SELECT guid,rights FROM users WHERE login=@login AND password=@hashPassword", _connection);
                     Command.Parameters.AddWithValue("login", login);
                     Command.Parameters.AddWithValue("hashPassword", hashPassword);
                     var usersReader = Command.ExecuteReader();
@@ -28,7 +28,7 @@ namespace DogShow.Data.DataDb
                         guid = usersReader[0] as string;
                         rights = usersReader[1] as string;
                     }
-                    Command = new MySqlCommand($"SELECT Request,Club_id FROM experts WHERE guid='{guid}'", Connection);
+                    Command = new MySqlCommand($"SELECT Request,Club_id FROM experts WHERE guid='{guid}'", _connection);
                     var expertReader = Command.ExecuteReader();
                     if (expertReader != null)
                     {
@@ -39,10 +39,10 @@ namespace DogShow.Data.DataDb
                             clubId = expertReader[1];
                             expertState = expertReader[0] as string;
                         }
-                        Command = new MySqlCommand($"SELECT Club_name FROM clubs WHERE id='{clubId}'", Connection);
+                        Command = new MySqlCommand($"SELECT Club_name FROM clubs WHERE id='{clubId}'", _connection);
                         club = Command.ExecuteScalar() as string;
                     }
-                    Command = new MySqlCommand($"SELECT Name,Surname,Fathername,Passport_info FROM masters WHERE guid='{guid}'", Connection);
+                    Command = new MySqlCommand($"SELECT Name,Surname,Fathername,Passport_info FROM masters WHERE guid='{guid}'", _connection);
                     var dataReader = Command.ExecuteReader();
                     using (dataReader)
                     {
@@ -66,91 +66,34 @@ namespace DogShow.Data.DataDb
                 return null;
             }
         }
-        public async Task<UserModel> GetLoginUser(string login, string hashPassword)
-        {
-            try
-            {
-                using (Connection)
-                {
-                    await Connection.OpenAsync();
-                    Command = new MySqlCommand("SELECT guid,rights FROM users WHERE login=@login AND password=@hashPassword", Connection);
-                    Command.Parameters.AddWithValue("login", login);
-                    Command.Parameters.AddWithValue("hashPassword", hashPassword);
-                    var usersReader = await Command.ExecuteReaderAsync() as MySqlDataReader;
-                    if (usersReader == null) return null;
-                    string guid, rights, club = string.Empty, expertState = string.Empty;
-                    using (usersReader)
-                    {
-                        await usersReader.ReadAsync();
-                        guid = usersReader[0] as string;
-                        rights = usersReader[1] as string;
-                    }
-                    Command = new MySqlCommand($"SELECT Request,Club_id FROM experts WHERE guid='{guid}'", Connection);
-                    var expertReader = await Command.ExecuteReaderAsync() as MySqlDataReader;
-                    if (expertReader != null)
-                    {
-                        object clubId;
-                        using (expertReader)
-                        {
-                            await expertReader.ReadAsync();
-                            clubId = expertReader[1];
-                            expertState = expertReader[0] as string;
-                        }
-                        Command = new MySqlCommand($"SELECT Club_name FROM clubs WHERE id='{clubId}'", Connection);
-                        club = await Command.ExecuteScalarAsync() as string;
-                    }
-                    Command = new MySqlCommand($"SELECT Name,Surname,Fathername,Passport_info FROM masters WHERE guid='{guid}'", Connection);
-                    var dataReader = await Command.ExecuteReaderAsync() as MySqlDataReader;
-                    using (dataReader)
-                    {
-                        await dataReader.ReadAsync();
-                        return new UserModel
-                        {
-                            Guid = guid,
-                            Name = dataReader["Name"] as string,
-                            Surname = dataReader["Surname"] as string,
-                            Fathername = dataReader["Fathername"] as string,
-                            PassportInfo = dataReader["Passport_info"] as string,
-                            Rights = rights,
-                            ExpertState = expertState,
-                            ClubName = club
-                        };
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-        public async Task<object> RegisterNewUser(UserModel registerUserModel, object login, object hashPassword)
+        public object RegisterNewUser(UserModel registerUserModel, object login, object hashPassword)
         {
             try
             {
                 var guid = Guid.NewGuid();
-                using (Connection)
+                using (_connection)
                 {
-                    await Connection.OpenAsync();
-                    Command = new MySqlCommand($"INSERT INTO users (guid,login,password) VALUES ('{guid}',@login,@hashPassword)", Connection);
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand($"INSERT INTO users (guid,login,password) VALUES ('{guid}',@login,@hashPassword)", _connection);
                     Command.Parameters.AddWithValue("login", login);
                     Command.Parameters.AddWithValue("hashPassword", hashPassword);
-                    await Command.ExecuteNonQueryAsync();
+                    Command.ExecuteNonQueryAsync();
 
                     Command = new MySqlCommand("INSERT INTO masters (guid,Name,Surname,Fathername,Passport_info) VALUES " +
-                                               $"('{guid}',@name,@surname,@fathername,@passport_info)", Connection);
+                                               $"('{guid}',@name,@surname,@fathername,@passport_info)", _connection);
                     Command.Parameters.AddWithValue("name", registerUserModel.Name);
                     Command.Parameters.AddWithValue("surname", registerUserModel.Surname);
                     Command.Parameters.AddWithValue("fathername", registerUserModel.Fathername);
                     Command.Parameters.AddWithValue("passport_info", registerUserModel.PassportInfo);
-                    await Command.ExecuteNonQueryAsync();
+                    Command.ExecuteNonQueryAsync();
 
-                    Command = new MySqlCommand("SELECT id FROM clubs WHERE Club_name=@clubname", Connection);
+                    Command = new MySqlCommand("SELECT id FROM clubs WHERE Club_name=@clubname", _connection);
                     Command.Parameters.AddWithValue("clubname", registerUserModel.ClubName);
-                    var clubId = await Command.ExecuteScalarAsync();
+                    var clubId = Command.ExecuteScalarAsync();
 
-                    Command = new MySqlCommand($"INSERT INTO experts (guid,Club_id,Request) VALUES ('{guid}','{clubId}',@expert)", Connection);
+                    Command = new MySqlCommand($"INSERT INTO experts (guid,Club_id,Request) VALUES ('{guid}','{clubId}',@expert)", _connection);
                     Command.Parameters.AddWithValue("expert", registerUserModel.ExpertState);
-                    await Command.ExecuteNonQueryAsync();
+                    Command.ExecuteNonQueryAsync();
                 }
                 return "User Succesfull Registered";
             }
@@ -159,20 +102,20 @@ namespace DogShow.Data.DataDb
                 return e;
             }
         }
-        public async Task<object> RegisterNewDog(DogModel registerDogModel, object guid)
+        public object RegisterNewDog(DogModel registerDogModel, object guid)
         {
             try
             {
-                using (Connection)
+                using (_connection)
                 {
-                    await Connection.OpenAsync();
-                    Command = new MySqlCommand("SELECT id FROM clubs WHERE Club_name=@clubname", Connection);
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand("SELECT id FROM clubs WHERE Club_name=@clubname", _connection);
                     Command.Parameters.AddWithValue("clubname", registerDogModel.ClubName);
-                    var clubId = await Command.ExecuteScalarAsync();
+                    var clubId = Command.ExecuteScalarAsync();
 
                     Command = new MySqlCommand("INSERT INTO dogs " +
                                                "(Club_id,Name,Breed,Age,Document_info,Parents_info,Date_last_vaccenation,Master_guid,Photo,About) VALUES " +
-                                               $"('{clubId}',@name,@breed,@age,@doc,@parents,@date,'{guid}',@photo,@about)", Connection);
+                                               $"('{clubId}',@name,@breed,@age,@doc,@parents,@date,'{guid}',@photo,@about)", _connection);
                     Command.Parameters.AddWithValue("name", registerDogModel.Name);
                     Command.Parameters.AddWithValue("breed", registerDogModel.Breed);
                     Command.Parameters.AddWithValue("age", registerDogModel.Age);
@@ -181,7 +124,7 @@ namespace DogShow.Data.DataDb
                     Command.Parameters.AddWithValue("date", registerDogModel.DateLastVaccenation);
                     Command.Parameters.AddWithValue("photo", registerDogModel.PhotoUrl);
                     Command.Parameters.AddWithValue("about", registerDogModel.About);
-                    await Command.ExecuteNonQueryAsync();
+                    Command.ExecuteNonQueryAsync();
                     return "Dog Succesfull Register";
                 }
             }
@@ -190,17 +133,17 @@ namespace DogShow.Data.DataDb
                 return e;
             }
         }
-        public async Task<object> UpdatePassword(string hashPassword, object guid)
+        public object UpdatePassword(string hashPassword, object guid)
         {
             try
             {
-                using (Connection)
+                using (_connection)
                 {
-                    await Connection.OpenAsync();
-                    Command = new MySqlCommand("UPDATE users SET password=@hashpassword WHERE guid=@guid", Connection);
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand("UPDATE users SET password=@hashpassword WHERE guid=@guid", _connection);
                     Command.Parameters.AddWithValue("hashPassword", hashPassword);
                     Command.Parameters.AddWithValue("guid", guid);
-                    await Command.ExecuteNonQueryAsync();
+                    Command.ExecuteNonQueryAsync();
                     return "Password was updated";
                 }
             }
@@ -209,20 +152,42 @@ namespace DogShow.Data.DataDb
                 return e;
             }
         }
-        public async Task<object> UpdateDogInfo(DogModel updateDogModel)
+        public object UpdateDogInfo(DogModel updateDogModel)
         {
             try
             {
-                using (Connection)
+                using (_connection)
                 {
-                    await Connection.OpenAsync();
-                    Command = new MySqlCommand($"",Connection);
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand($"",_connection);
                     return "Dog info was updated";
                 }
             }
             catch (Exception e)
             {
                 return e;
+            }
+        }
+        public List<string> GetClubsName()
+        {
+            try
+            {
+                using (_connection)
+                {
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand("SELECT Club_name FROM clubs", _connection);
+                    var dataReader = Command.ExecuteReader();
+                    var list = new List<string>();
+                    for (var i = 0; i < dataReader.RecordsAffected; i++)
+                    {
+                        list.Add(dataReader[i].ToString());
+                    }
+                    return list;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

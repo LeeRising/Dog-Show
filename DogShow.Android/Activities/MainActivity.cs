@@ -18,7 +18,7 @@ using SupportFragment = Android.Support.V4.App.Fragment;
 
 namespace DogShow.Android
 {
-    [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme",ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/ApplicationName", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
     public class MainActivity : AppCompatActivity
     {
         private DrawerLayout _drawerLayout;
@@ -26,7 +26,7 @@ namespace DogShow.Android
         private View _headerView;
         private TextView _loginRegiserTv;
 
-        private SupportFragment _fameFragment, _myDogFragment, _showsFragment, _adminFragment,_expertFragment;
+        private SupportFragment _fameFragment, _myDogFragment, _showsFragment, _adminFragment, _expertFragment;
 
         private Dictionary<int, SupportFragment> _fragmentsDictionary;
 
@@ -40,6 +40,13 @@ namespace DogShow.Android
                 .Build());
             Componentsinit();
             DictionaryCreate();
+        }
+
+        protected override void OnResume()
+        {
+            base.OnResume();
+            if (DataHolder.User == null) return;
+            _loginRegiserTv.Text = DataHolder.User.Name;
         }
 
         protected override void AttachBaseContext(Context @base)
@@ -84,7 +91,12 @@ namespace DogShow.Android
             _loginRegiserTv.Typeface = typeface;
             _loginRegiserTv.Click += delegate
             {
-                StartActivity(typeof(AuthActivity));
+                if (_loginRegiserTv.Text == GetString(Resource.String.LoginRegister))
+                    StartActivity(typeof(AuthActivity));
+                else
+                {
+                    _drawerLayout.CloseDrawers();
+                }
             };
         }
 

@@ -128,15 +128,12 @@ namespace DogShow.Android.Fragments
                 _passWraper.ErrorEnabled = false;
         }
     }
-
-    //public class LoginTask : AsyncTask<object, Void, UserModel>
+    
     public class LoginTask : AsyncTask
     {
         private ProgressDialog _progressDialog;
         private readonly Context _context;
         private readonly List<string> _messagesList;
-
-        public UserModel User { get; private set; }
 
         public LoginTask(Context context, List<string> messagesList)
         {
@@ -152,7 +149,7 @@ namespace DogShow.Android.Fragments
 
         protected override Object DoInBackground(params Object[] @params)
         {
-            User = new GetData().GetLoginUser(@params[0], @params[1]);
+            DataHolder.User = new GetData().GetLoginUser(@params[0], @params[1]);
             return true;
         }
 
@@ -160,10 +157,12 @@ namespace DogShow.Android.Fragments
         {
             base.OnPostExecute(result);
             _progressDialog.Hide();
-            if (User == null)
+            if (DataHolder.User == null)
                 new AlertDialog.Builder(_context)
                     .SetMessage(_messagesList[4])
                     .Show();
+            else
+                (_context as Activity)?.Finish();
         }
     }
 }

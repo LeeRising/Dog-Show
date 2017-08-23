@@ -1,9 +1,13 @@
-﻿using Android.OS;
+﻿using Android.App;
+using Android.Content;
+using Android.OS;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
+using DogShow.Data;
+using Java.Lang;
+using Fragment = Android.Support.V4.App.Fragment;
 
 namespace DogShow.Android.Fragments
 {
@@ -27,17 +31,15 @@ namespace DogShow.Android.Fragments
         private Spinner _clubName;
         private CheckBox _isExpert;
         private Button _regButton;
-        private ViewGroup _container;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
         }
-        
+
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
             var view = inflater.Inflate(Resource.Layout.Register_fragment, container, false);
-            _container = container;
             return view;
         }
 
@@ -55,8 +57,20 @@ namespace DogShow.Android.Fragments
 
             _regButton.Click += delegate
             {
-                if (IsRegisterAllow())
-                    Toast.MakeText(Activity, "Register is good", ToastLength.Long).Show();
+                if (IsRegisterAllow)
+                {
+                    var registerModel = new UserModel
+                    {
+                        Name = _nameEditText.Text,
+                        Surname = _surnameEditText.Text,
+                        Fathername = _fatherEditText.Text,
+                        PassportInfo = _passportInfoEditText.Text,
+                        ClubName = _clubName.SelectedItem.ToString(),
+                        ExpertState = _isExpert.Checked ? "true" : "false",
+                        Rights = "user"
+                    };
+
+                }
             };
         }
 
@@ -91,7 +105,7 @@ namespace DogShow.Android.Fragments
         private void FieldsTextChanged(object sender, TextChangedEventArgs e)
         {
             EmptyFieldErrorShow();
-            if (_passEditText.Length()<8)
+            if (_passEditText.Length() < 8)
                 _passWraper.Error = GetString(Resource.String.ErrorMessagePassLenght);
             else
                 _passWraper.ErrorEnabled = false;
@@ -121,7 +135,7 @@ namespace DogShow.Android.Fragments
                 _rpPassWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
             else
                 _rpPassWraper.ErrorEnabled = false;
-            
+
             if (_nameEditText.Length() == 0)
                 _nameWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
             else
@@ -139,17 +153,45 @@ namespace DogShow.Android.Fragments
         }
 
         /// <summary>
-        /// Determines whether [is register allow].
+        /// Gets a value indicating whether this instance is register allow.
         /// </summary>
-        /// <returns>
-        ///   <c>true</c> if [is register allow]; otherwise, <c>false</c>.
-        /// </returns>
-        private bool IsRegisterAllow()
+        /// <value>
+        ///   <c>true</c> if this instance is register allow; otherwise, <c>false</c>.
+        /// </value>
+        private bool IsRegisterAllow
         {
-            if (_loginWraper.ErrorEnabled || _passWraper.ErrorEnabled || _rpPassWraper.ErrorEnabled ||
-                _surNameWraper.ErrorEnabled || _nameWraper.ErrorEnabled || _passportInfoWraper.ErrorEnabled)
-                return false;
-            return true;
+            get
+            {
+                if (_loginWraper.ErrorEnabled || _passWraper.ErrorEnabled || _rpPassWraper.ErrorEnabled ||
+                    _surNameWraper.ErrorEnabled || _nameWraper.ErrorEnabled || _passportInfoWraper.ErrorEnabled)
+                    return false;
+                return true;
+            }
+        }
+    }
+
+    public class RegisterTask : AsyncTask
+    {
+        private ProgressDialog _progressDialog;
+        private readonly Context _context;
+        public RegisterTask(Context context)
+        {
+            _context = context;
+        }
+
+        protected override void OnPreExecute()
+        {
+            base.OnPreExecute();
+        }
+
+        protected override Object DoInBackground(params Object[] @params)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        protected override void OnPostExecute(Object result)
+        {
+            base.OnPostExecute(result);
         }
     }
 }

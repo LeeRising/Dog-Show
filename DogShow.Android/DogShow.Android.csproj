@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\AuthActivity.cs" />
+    <Compile Include="Helper\DataHolder.cs" />
     <Compile Include="Fragments\LoginFragment.cs" />
     <Compile Include="Fragments\RegisterFragment.cs" />
     <Compile Include="Fragments\AdminFragment.cs" />

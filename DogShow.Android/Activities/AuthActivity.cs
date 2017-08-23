@@ -88,7 +88,7 @@ namespace DogShow.Android
 
         public override ICharSequence GetPageTitleFormatted(int position)
         {
-            return new Java.Lang.String(FragmentNames[position]);
+            return new String(FragmentNames[position]);
         }
     }
 }
