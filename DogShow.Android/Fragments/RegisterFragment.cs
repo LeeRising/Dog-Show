@@ -1,4 +1,5 @@
-﻿using Android.App;
+﻿using System.Threading.Tasks;
+using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Support.Design.Widget;
@@ -6,7 +7,9 @@ using Android.Text;
 using Android.Views;
 using Android.Widget;
 using DogShow.Data;
+using DogShow.Data.DataDb;
 using Java.Lang;
+using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace DogShow.Android.Fragments
@@ -31,6 +34,7 @@ namespace DogShow.Android.Fragments
         private Spinner _clubName;
         private CheckBox _isExpert;
         private Button _regButton;
+        private ProgressBar _progressBar;
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -66,7 +70,7 @@ namespace DogShow.Android.Fragments
                         Fathername = _fatherEditText.Text,
                         PassportInfo = _passportInfoEditText.Text,
                         ClubName = _clubName.SelectedItem.ToString(),
-                        ExpertState = _isExpert.Checked ? "true" : "false",
+                        ExpertState = _isExpert.Checked ? "waiting" : "none",
                         Rights = "user"
                     };
 
@@ -95,6 +99,8 @@ namespace DogShow.Android.Fragments
             _passportInfoEditText = Activity.FindViewById<EditText>(Resource.Id.Register_PassportEt);
             _clubName = Activity.FindViewById<Spinner>(Resource.Id.Register_clubSelector);
             _isExpert = Activity.FindViewById<CheckBox>(Resource.Id.Register_isExpert);
+            _progressBar = Activity.FindViewById<ProgressBar>(Resource.Id.circularProgressBar);
+            _progressBar.Visibility = ViewStates.Visible;
         }
 
         /// <summary>
@@ -114,6 +120,13 @@ namespace DogShow.Android.Fragments
                 _rpPassWraper.Error = GetString(Resource.String.ErrorMessagePassEquel);
             else
                 _rpPassWraper.ErrorEnabled = false;
+
+            if ((EditText) sender == _loginEditText)
+                Task.Factory.StartNew(() =>
+                {
+                    _progressBar.Visibility = ViewStates.Visible;
+                    //Call to db
+                });
         }
 
         /// <summary>
@@ -182,16 +195,27 @@ namespace DogShow.Android.Fragments
         protected override void OnPreExecute()
         {
             base.OnPreExecute();
+            _progressDialog = ProgressDialog.Show(_context,
+                (_context as Activity)?.GetString(Resource.String.LoginInProgressMes),
+                (_context as Activity)?.GetString(Resource.String.LoginPlsWaitMes));
         }
 
         protected override Object DoInBackground(params Object[] @params)
         {
-            throw new System.NotImplementedException();
+            new GetData().RegisterNewUser(@params[0], @params[1], @params[2]);
+            return true;
         }
 
         protected override void OnPostExecute(Object result)
         {
             base.OnPostExecute(result);
+            _progressDialog.Hide();
+            if (DataHolder.User == null)
+                new AlertDialog.Builder(_context)
+                    .SetMessage((_context as Activity)?.GetString(Resource.String.LoginErrorMes))
+                    .Show();
+            else
+                (_context as Activity)?.Finish();
         }
     }
 }

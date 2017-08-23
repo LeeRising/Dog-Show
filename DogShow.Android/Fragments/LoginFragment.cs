@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
-using DogShow.Data;
 using DogShow.Data.DataDb;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Fragment = Android.Support.V4.App.Fragment;
@@ -23,10 +19,6 @@ namespace DogShow.Android.Fragments
         private EditText _loginEt, _passEt;
         private CheckBox _isShowPass;
         private TextInputLayout _loginWraper, _passWraper;
-        private ProgressDialog _progressDialog;
-        private List<string> LoginTaskMessages;
-        private UserModel _user;
-        private View _instanceView;
 
         /// <summary>
         /// Determines whether [is login alow].
@@ -51,8 +43,8 @@ namespace DogShow.Android.Fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
-            _instanceView = inflater.Inflate(Resource.Layout.Login_fragment, container, false);
-            return _instanceView;
+            var view = inflater.Inflate(Resource.Layout.Login_fragment, container, false);
+            return view;
         }
 
         public override void OnActivityCreated(Bundle savedInstanceState)
@@ -67,6 +59,9 @@ namespace DogShow.Android.Fragments
             };
         }
 
+        /// <summary>
+        /// Componentses the initialize.
+        /// </summary>
         private void ComponentsInit()
         {
             _loginEt = Activity.FindViewById<EditText>(Resource.Id.LoginEt);
@@ -77,26 +72,28 @@ namespace DogShow.Android.Fragments
             _passWraper = Activity.FindViewById<TextInputLayout>(Resource.Id.PassWraper);
             _loginEt.TextChanged += TextChangedChecker;
             _passEt.TextChanged += TextChangedChecker;
-            LoginTaskMessages = new List<string>
-            {
-            GetString(Resource.String.LoginInProgressMes),
-            GetString(Resource.String.LoginPlsWaitMes),
-            GetString(Resource.String.LoginLabel),
-            GetString(Resource.String.LoginSuccesMes),
-            GetString(Resource.String.LoginErrorMes),
-            };
         }
 
+        /// <summary>
+        /// Texts the changed checker.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
         private void TextChangedChecker(object sender, TextChangedEventArgs e)
         {
             ErrorShow();
         }
 
+        /// <summary>
+        /// Logins the click.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
         private void LoginClick(object sender, EventArgs e)
         {
             ErrorShow();
             if (!IsLoginAlow) return;
-            new LoginTask(Activity, LoginTaskMessages).Execute(_loginEt.Text, Cryptography.getHashSha256(_passEt.Text));
+            new LoginTask(Activity).Execute(_loginEt.Text, Cryptography.getHashSha256(_passEt.Text));
         }
 
         /// <summary>
@@ -133,18 +130,18 @@ namespace DogShow.Android.Fragments
     {
         private ProgressDialog _progressDialog;
         private readonly Context _context;
-        private readonly List<string> _messagesList;
 
-        public LoginTask(Context context, List<string> messagesList)
+        public LoginTask(Context context)
         {
             _context = context;
-            _messagesList = messagesList;
         }
 
         protected override void OnPreExecute()
         {
             base.OnPreExecute();
-            _progressDialog = ProgressDialog.Show(_context, _messagesList[0], _messagesList[1]);
+            _progressDialog = ProgressDialog.Show(_context,
+                (_context as Activity)?.GetString(Resource.String.LoginInProgressMes),
+                (_context as Activity)?.GetString(Resource.String.LoginPlsWaitMes));
         }
 
         protected override Object DoInBackground(params Object[] @params)
@@ -159,7 +156,7 @@ namespace DogShow.Android.Fragments
             _progressDialog.Hide();
             if (DataHolder.User == null)
                 new AlertDialog.Builder(_context)
-                    .SetMessage(_messagesList[4])
+                    .SetMessage((_context as Activity)?.GetString(Resource.String.LoginErrorMes))
                     .Show();
             else
                 (_context as Activity)?.Finish();

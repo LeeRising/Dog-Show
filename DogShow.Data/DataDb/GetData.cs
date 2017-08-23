@@ -66,10 +66,11 @@ namespace DogShow.Data.DataDb
                 return null;
             }
         }
-        public object RegisterNewUser(UserModel registerUserModel, object login, object hashPassword)
+        public object RegisterNewUser(object registerModel, object login, object hashPassword)
         {
             try
             {
+                var registerUserModel = (UserModel) registerModel;
                 var guid = Guid.NewGuid();
                 using (_connection)
                 {
