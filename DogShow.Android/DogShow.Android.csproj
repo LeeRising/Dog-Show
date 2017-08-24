@@ -109,6 +109,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activities\AuthActivity.cs" />
+    <Compile Include="Helper\Tasks\LoadCacheTask.cs" />
+    <Compile Include="Helper\Tasks\LoginTask.cs" />
+    <Compile Include="Helper\Tasks\CheckLoginTask.cs" />
+    <Compile Include="Helper\Tasks\RegisterTask.cs" />
     <Compile Include="Helper\DataHolder.cs" />
     <Compile Include="Fragments\LoginFragment.cs" />
     <Compile Include="Fragments\RegisterFragment.cs" />

@@ -2,6 +2,8 @@
 <resources>
   <!-- Main Activity -->
   <string name="ApplicationName">Dogs Show</string>
+  <string name="InProgressMes">Connection in progress</string>
+  <string name="PlsWaitMes">Please wait...</string>
   <!-- Login Activity -->
   <string name="LogSwitcher">Login</string>
   <string name="RegSwitcher">Register</string>
@@ -17,9 +19,6 @@
   <!-- Login Fragment -->
   <string name="LoginLabel">Login</string>
   <string name="PasswordLabel">Password</string>
-  <string name="LoginBtn">Login</string>
-  <string name="LoginInProgressMes">Login In Progress</string>
-  <string name="LoginPlsWaitMes">Please wait...</string>
   <string name="LoginSuccesMes">Login Successful</string>
   <string name="LoginErrorMes">Wrong login or password!</string>
   <!--Register Fragment-->
@@ -34,8 +33,9 @@
   <string name="Register_IsExpert">Register as expert?</string>
   <string name="Register_Btn">Register</string>
   <string name="Register_LoginExist">Login {existLogin} already exist!</string>
-  <!--Error message-->
-  <string name="ErrorMessageEmptyField">Field must not be empty!</string>
-  <string name="ErrorMessagePassEquel">Password`s must be indentical!</string>
-  <string name="ErrorMessagePassLenght">Password length must have more than 8 chars!</string>
+  <string name="ErrorEmptyField">Field must not be empty!</string>
+  <string name="ErrorPassEquel">Password`s must be indentical!</string>
+  <string name="ErrorPassLenght">Password length must have more than 8 chars!</string>
+  <string name="SomethingWentWrongMes">Something went wrong!</string>
+  <string name="TryLater">Try later!</string>
 </resources>

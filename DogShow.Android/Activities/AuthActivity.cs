@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -8,7 +7,6 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
-using Android.Widget;
 using DogShow.Android.Fragments;
 using Java.Lang;
 using UK.CO.Chrisjenx.Calligraphy;
@@ -22,14 +20,6 @@ namespace DogShow.Android
     public class AuthActivity : AppCompatActivity
     {
         private SupportFragment _loginFragment, _registerFragment;
-        //Snackbar.Make(anchor, "Yay Snackbar!!", Snackbar.LengthLong)
-        //.SetAction("Action", v =>
-        //{
-        //    //Do something here
-        //    Intent intent = new Intent(fab.Context, typeof(BottomSheetActivity));
-        //    StartActivity(intent);
-        //})
-        //.Show();
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -46,14 +36,6 @@ namespace DogShow.Android
             _loginFragment = new LoginFragment();
             _registerFragment = new RegisterFragment();
             SetUpViewPager();
-
-#if DEBUG
-            //Task.Run(() =>
-            //{
-            //    while (true)
-            //        Title = Runtime.GetRuntime().TotalMemory().ToString();
-            //});
-#endif
         }
         protected override void AttachBaseContext(Context @base)
         {

@@ -70,7 +70,7 @@ namespace DogShow.Data.DataDb
         {
             try
             {
-                var registerUserModel = (UserModel) registerModel;
+                var registerUserModel = (UserModel)registerModel;
                 var guid = Guid.NewGuid();
                 using (_connection)
                 {
@@ -98,9 +98,9 @@ namespace DogShow.Data.DataDb
                 }
                 return "User Succesfull Registered";
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return e;
+                return null;
             }
         }
         public object RegisterNewDog(DogModel registerDogModel, object guid)
@@ -129,9 +129,9 @@ namespace DogShow.Data.DataDb
                     return "Dog Succesfull Register";
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return e;
+                return null;
             }
         }
         public object UpdatePassword(string hashPassword, object guid)
@@ -148,9 +148,9 @@ namespace DogShow.Data.DataDb
                     return "Password was updated";
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return e;
+                return null;
             }
         }
         public object UpdateDogInfo(DogModel updateDogModel)
@@ -160,13 +160,13 @@ namespace DogShow.Data.DataDb
                 using (_connection)
                 {
                     _connection.OpenAsync();
-                    Command = new MySqlCommand($"",_connection);
+                    Command = new MySqlCommand($"", _connection);
                     return "Dog info was updated";
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                return e;
+                return null;
             }
         }
         public List<string> GetClubsName()
@@ -179,10 +179,8 @@ namespace DogShow.Data.DataDb
                     Command = new MySqlCommand("SELECT Club_name FROM clubs", _connection);
                     var dataReader = Command.ExecuteReader();
                     var list = new List<string>();
-                    for (var i = 0; i < dataReader.RecordsAffected; i++)
-                    {
-                        list.Add(dataReader[i].ToString());
-                    }
+                    while (dataReader.Read())
+                        list.Add(dataReader["Club_name"].ToString());
                     return list;
                 }
             }
@@ -193,12 +191,19 @@ namespace DogShow.Data.DataDb
         }
         public object IsLoginExist(object login)
         {
-            using (_connection)
+            try
             {
-                _connection.OpenAsync();
-                Command = new MySqlCommand("SELECT Count(login) FROM users WHERE login=@login", _connection);
-                Command.Parameters.AddWithValue("login", login);
-                return Command.ExecuteScalarAsync().Result;
+                using (_connection)
+                {
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand("SELECT Count(login) FROM users WHERE login=@login", _connection);
+                    Command.Parameters.AddWithValue("login", login);
+                    return Command.ExecuteScalarAsync().Result;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
     }

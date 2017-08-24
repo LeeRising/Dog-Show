@@ -2,6 +2,8 @@
 <resources>
   <!-- Main Activity -->
   <string name="ApplicationName">Виставка собак</string>
+  <string name="InProgressMes">Встановлюється зєднаня</string>
+  <string name="PlsWaitMes">Зачекайте будь ласка...</string>
   <!-- Login Activity -->
   <string name="LogSwitcher">Увійти</string>
   <string name="RegSwitcher">Зареєструватися</string>
@@ -17,8 +19,6 @@
    <!--Login Fragment--> 
   <string name="LoginLabel">Логін</string>
   <string name="PasswordLabel">Пароль</string>
-  <string name="LoginInProgressMes">Встановлюється зєднаня</string>
-  <string name="LoginPlsWaitMes">Зачекайте будь ласка...</string>
   <string name="LoginSuccesMes">Логін та пароль приняті</string>
   <string name="LoginErrorMes">Неправильний логін або пароль!</string>
   <!--Register Fragment-->
@@ -33,8 +33,9 @@
   <string name="Register_IsExpert">Зареєструватися як експерт?</string>
   <string name="Register_Btn">Зареєструватися</string>
   <string name="Register_LoginExist">Логін {existLogin} вже існує!</string>
-  <!--Error message-->
-  <string name="ErrorMessageEmptyField">Поле не повинно бути порожнім!</string>
-  <string name="ErrorMessagePassEquel">Паролі повинні співпадати!</string>
-  <string name="ErrorMessagePassLenght">Довжина пароля повинна мати більше 8 символів!</string>
+  <string name="ErrorEmptyField">Поле не повинно бути порожнім!</string>
+  <string name="ErrorPassEquel">Паролі повинні співпадати!</string>
+  <string name="ErrorPassLenght">Довжина пароля повинна мати більше 8 символів!</string>
+  <string name="SomethingWentWrongMes">Щось пішло не так!</string>
+  <string name="TryLater">Спробуйте пізніше!</string>
 </resources>

@@ -118,13 +118,15 @@
         </android.support.design.widget.TextInputLayout>
     <!---->
     <!--Club name-->
-        <Spinner
+      <Spinner
+            android:layout_marginTop="10px"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:id="@+id/Register_clubSelector" />
     <!---->
     <!--Register as expert-->
-        <CheckBox
+      <CheckBox
+            android:layout_marginTop="10px"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/Register_IsExpert"
@@ -132,6 +134,7 @@
     <!---->
     <!--Register button-->
         <Button
+            android:layout_marginTop="10px"
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:background="@drawable/roundedbutton"

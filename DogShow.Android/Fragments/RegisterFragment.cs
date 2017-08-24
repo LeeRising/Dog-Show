@@ -1,16 +1,11 @@
-﻿using System.Threading.Tasks;
-using Android.App;
-using Android.Content;
-using Android.Icu.Lang;
+﻿using System;
+using System.Threading.Tasks;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Text;
 using Android.Views;
 using Android.Widget;
 using DogShow.Data;
-using DogShow.Data.DataDb;
-using Java.Lang;
-using AlertDialog = Android.Support.V7.App.AlertDialog;
 using Fragment = Android.Support.V4.App.Fragment;
 
 namespace DogShow.Android.Fragments
@@ -65,6 +60,7 @@ namespace DogShow.Android.Fragments
                 if (!IsRegisterAllow) return;
                 var registerModel = new UserModel
                 {
+                    Guid = Guid.NewGuid().ToString(),
                     Name = _nameEditText.Text,
                     Surname = _surnameEditText.Text,
                     Fathername = _fatherEditText.Text,
@@ -73,7 +69,8 @@ namespace DogShow.Android.Fragments
                     ExpertState = _isExpert.Checked ? "waiting" : "none",
                     Rights = "user"
                 };
-                //new RegisterTask(Activity).Execute(registerModel,_loginEditText.Text,)
+                new RegisterTask(Activity).Execute(registerModel, _loginEditText.Text,
+                    Cryptography.getHashSha256(_passEditText.Text));
             };
         }
 
@@ -100,6 +97,7 @@ namespace DogShow.Android.Fragments
             _isExpert = Activity.FindViewById<CheckBox>(Resource.Id.Register_isExpert);
             _progressBar = Activity.FindViewById<ProgressBar>(Resource.Id.circularProgressBar);
             _progressBar.Visibility = ViewStates.Invisible;
+            _clubName.Adapter = new ArrayAdapter<string>(Context, Resource.Layout.support_simple_spinner_dropdown_item, DataHolder.ClubList);
         }
 
         /// <summary>
@@ -114,12 +112,12 @@ namespace DogShow.Android.Fragments
                     .Execute(_loginEditText.Text);
             EmptyFieldErrorShow();
             if (_passEditText.Length() < 8)
-                _passWraper.Error = GetString(Resource.String.ErrorMessagePassLenght);
+                _passWraper.Error = GetString(Resource.String.ErrorPassLenght);
             else
                 _passWraper.ErrorEnabled = false;
 
             if (_passEditText.Text != _rpPassEditText.Text)
-                _rpPassWraper.Error = GetString(Resource.String.ErrorMessagePassEquel);
+                _rpPassWraper.Error = GetString(Resource.String.ErrorPassEquel);
             else
                 _rpPassWraper.ErrorEnabled = false;
         }
@@ -130,32 +128,32 @@ namespace DogShow.Android.Fragments
         private void EmptyFieldErrorShow()
         {
             if (_loginEditText.Length() == 0)
-                _loginWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
+                _loginWraper.Error = GetString(Resource.String.ErrorEmptyField);
             else
                 _loginWraper.ErrorEnabled = false;
 
             if (_passEditText.Length() == 0)
-                _passWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
+                _passWraper.Error = GetString(Resource.String.ErrorEmptyField);
             else
                 _passWraper.ErrorEnabled = false;
 
             if (_rpPassEditText.Length() == 0)
-                _rpPassWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
+                _rpPassWraper.Error = GetString(Resource.String.ErrorEmptyField);
             else
                 _rpPassWraper.ErrorEnabled = false;
 
             if (_nameEditText.Length() == 0)
-                _nameWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
+                _nameWraper.Error = GetString(Resource.String.ErrorEmptyField);
             else
                 _nameWraper.ErrorEnabled = false;
 
             if (_surnameEditText.Length() == 0)
-                _surNameWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
+                _surNameWraper.Error = GetString(Resource.String.ErrorEmptyField);
             else
                 _surNameWraper.ErrorEnabled = false;
 
             if (_passportInfoEditText.Length() == 0)
-                _passportInfoWraper.Error = GetString(Resource.String.ErrorMessageEmptyField);
+                _passportInfoWraper.Error = GetString(Resource.String.ErrorEmptyField);
             else
                 _passportInfoWraper.ErrorEnabled = false;
         }
@@ -175,80 +173,6 @@ namespace DogShow.Android.Fragments
                     return false;
                 return true;
             }
-        }
-    }
-
-    public class RegisterTask : AsyncTask
-    {
-        private ProgressDialog _progressDialog;
-        private readonly Context _context;
-        public RegisterTask(Context context)
-        {
-            _context = context;
-        }
-
-        protected override void OnPreExecute()
-        {
-            base.OnPreExecute();
-            _progressDialog = ProgressDialog.Show(_context,
-                (_context as Activity)?.GetString(Resource.String.LoginInProgressMes),
-                (_context as Activity)?.GetString(Resource.String.LoginPlsWaitMes));
-        }
-
-        protected override Object DoInBackground(params Object[] @params)
-        {
-            new GetData().RegisterNewUser(@params[0], @params[1], @params[2]);
-            return true;
-        }
-
-        protected override void OnPostExecute(Object result)
-        {
-            base.OnPostExecute(result);
-            _progressDialog.Hide();
-            if (DataHolder.User == null)
-                new AlertDialog.Builder(_context)
-                    .SetMessage((_context as Activity)?.GetString(Resource.String.LoginErrorMes))
-                    .Show();
-            else
-                (_context as Activity)?.Finish();
-        }
-    }
-    public class CheckLoginTask : AsyncTask
-    {
-        private readonly ProgressBar _progressBar;
-        private readonly TextInputLayout _loginErrorWraper;
-        private readonly string _loginExistError;
-        private string _login;
-        public CheckLoginTask(ProgressBar progressBar, TextInputLayout loginErrorWraper, string loginExistError)
-        {
-            _progressBar = progressBar;
-            _loginErrorWraper = loginErrorWraper;
-            _loginExistError = loginExistError;
-        }
-
-        protected override void OnPreExecute()
-        {
-            base.OnPreExecute();
-            _progressBar.Visibility = ViewStates.Visible;
-        }
-
-        protected override Object DoInBackground(params Object[] @params)
-        {
-            _login = @params[0].ToString();
-            return new GetData().IsLoginExist(_login).ToString();
-        }
-
-        protected override void OnPostExecute(Object result)
-        {
-            base.OnPostExecute(result);
-            _progressBar.Visibility = ViewStates.Invisible;
-            if (result.ToString() == "1")
-            {
-                _loginErrorWraper.ErrorEnabled = true;
-                _loginErrorWraper.Error = _loginExistError.Replace("{existLogin}", _login);
-            }
-            else
-                _loginErrorWraper.ErrorEnabled = false;
         }
     }
 }

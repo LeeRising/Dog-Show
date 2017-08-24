@@ -42,7 +42,7 @@
     </FrameLayout>
     <Button
         android:layout_height="wrap_content"
-        android:hint="@string/LoginBtn"
+        android:hint="@string/LoginLabel"
         android:background="@drawable/roundedbutton"
         android:layout_width="fill_parent"
         android:textColor="@color/texts"

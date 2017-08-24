@@ -62,6 +62,8 @@ namespace DogShow.Android
 
         private void Componentsinit()
         {
+            new LoadCacheTask(this).Execute();
+
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             NavigationHeaderInit();
@@ -87,7 +89,7 @@ namespace DogShow.Android
         {
             _headerView = _navigationView.GetHeaderView(0);
             _loginRegiserTv = _headerView.FindViewById<TextView>(Resource.Id.navheader_logreg);
-            var typeface = Typeface.CreateFromAsset(Assets, "fonts/antipasto.otf");// its work
+            var typeface = Typeface.CreateFromAsset(Assets, "fonts/antipasto.otf");
             _loginRegiserTv.Typeface = typeface;
             _loginRegiserTv.Click += delegate
             {
