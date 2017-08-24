@@ -2134,125 +2134,128 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f020055
 			public const int avd_hide_password = 2130837589;
 			
-			// aapt resource value: 0x7f020078
-			public const int avd_hide_password_1 = 2130837624;
-			
 			// aapt resource value: 0x7f020079
-			public const int avd_hide_password_2 = 2130837625;
+			public const int avd_hide_password_1 = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int avd_hide_password_3 = 2130837626;
+			public const int avd_hide_password_2 = 2130837626;
+			
+			// aapt resource value: 0x7f02007b
+			public const int avd_hide_password_3 = 2130837627;
 			
 			// aapt resource value: 0x7f020056
 			public const int avd_show_password = 2130837590;
 			
-			// aapt resource value: 0x7f02007b
-			public const int avd_show_password_1 = 2130837627;
-			
 			// aapt resource value: 0x7f02007c
-			public const int avd_show_password_2 = 2130837628;
+			public const int avd_show_password_1 = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int avd_show_password_3 = 2130837629;
+			public const int avd_show_password_2 = 2130837629;
+			
+			// aapt resource value: 0x7f02007e
+			public const int avd_show_password_3 = 2130837630;
 			
 			// aapt resource value: 0x7f020057
-			public const int design_bottom_navigation_item_background = 2130837591;
+			public const int circular_progressbar = 2130837591;
 			
 			// aapt resource value: 0x7f020058
-			public const int design_fab_background = 2130837592;
+			public const int design_bottom_navigation_item_background = 2130837592;
 			
 			// aapt resource value: 0x7f020059
-			public const int design_ic_visibility = 2130837593;
+			public const int design_fab_background = 2130837593;
 			
 			// aapt resource value: 0x7f02005a
-			public const int design_ic_visibility_off = 2130837594;
+			public const int design_ic_visibility = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int design_password_eye = 2130837595;
+			public const int design_ic_visibility_off = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int design_snackbar_background = 2130837596;
+			public const int design_password_eye = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int eye = 2130837597;
+			public const int design_snackbar_background = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int eye_off = 2130837598;
+			public const int eye = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int ic_action = 2130837599;
+			public const int eye_off = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int ic_dashboard = 2130837600;
+			public const int ic_action = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int ic_discuss = 2130837601;
+			public const int ic_dashboard = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int ic_done = 2130837602;
+			public const int ic_discuss = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int ic_event = 2130837603;
+			public const int ic_done = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int ic_forum = 2130837604;
+			public const int ic_event = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int ic_headset = 2130837605;
+			public const int ic_forum = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int ic_menu = 2130837606;
+			public const int ic_headset = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int ic_menu_refresh = 2130837607;
+			public const int ic_menu = 2130837607;
 			
 			// aapt resource value: 0x7f020068
-			public const int Icon = 2130837608;
+			public const int ic_menu_refresh = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int navigation_empty_icon = 2130837609;
+			public const int Icon = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int notification_action_background = 2130837610;
+			public const int navigation_empty_icon = 2130837610;
 			
 			// aapt resource value: 0x7f02006b
-			public const int notification_bg = 2130837611;
+			public const int notification_action_background = 2130837611;
 			
 			// aapt resource value: 0x7f02006c
-			public const int notification_bg_low = 2130837612;
+			public const int notification_bg = 2130837612;
 			
 			// aapt resource value: 0x7f02006d
-			public const int notification_bg_low_normal = 2130837613;
+			public const int notification_bg_low = 2130837613;
 			
 			// aapt resource value: 0x7f02006e
-			public const int notification_bg_low_pressed = 2130837614;
+			public const int notification_bg_low_normal = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int notification_bg_normal = 2130837615;
+			public const int notification_bg_low_pressed = 2130837615;
 			
 			// aapt resource value: 0x7f020070
-			public const int notification_bg_normal_pressed = 2130837616;
+			public const int notification_bg_normal = 2130837616;
 			
 			// aapt resource value: 0x7f020071
-			public const int notification_icon_background = 2130837617;
-			
-			// aapt resource value: 0x7f020076
-			public const int notification_template_icon_bg = 2130837622;
-			
-			// aapt resource value: 0x7f020077
-			public const int notification_template_icon_low_bg = 2130837623;
+			public const int notification_bg_normal_pressed = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int notification_tile_bg = 2130837618;
+			public const int notification_icon_background = 2130837618;
+			
+			// aapt resource value: 0x7f020077
+			public const int notification_template_icon_bg = 2130837623;
+			
+			// aapt resource value: 0x7f020078
+			public const int notification_template_icon_low_bg = 2130837624;
 			
 			// aapt resource value: 0x7f020073
-			public const int notify_panel_notification_icon_bg = 2130837619;
+			public const int notification_tile_bg = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int roundedbutton = 2130837620;
+			public const int notify_panel_notification_icon_bg = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int show_pass_selector = 2130837621;
+			public const int roundedbutton = 2130837621;
+			
+			// aapt resource value: 0x7f020076
+			public const int show_pass_selector = 2130837622;
 			
 			static Drawable()
 			{
@@ -2279,14 +2282,14 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070084
 			public const int LoginWraper = 2131165316;
 			
-			// aapt resource value: 0x7f0700ad
-			public const int NameWraper = 2131165357;
+			// aapt resource value: 0x7f0700ae
+			public const int NameWraper = 2131165358;
 			
 			// aapt resource value: 0x7f070087
 			public const int PassWraper = 2131165319;
 			
-			// aapt resource value: 0x7f0700b0
-			public const int PassportInfoWraper = 2131165360;
+			// aapt resource value: 0x7f0700b1
+			public const int PassportInfoWraper = 2131165361;
 			
 			// aapt resource value: 0x7f070088
 			public const int PasswordEt = 2131165320;
@@ -2294,44 +2297,44 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f0700a5
 			public const int RegLoginWraper = 2131165349;
 			
-			// aapt resource value: 0x7f0700a7
-			public const int RegPassWraper = 2131165351;
+			// aapt resource value: 0x7f0700a8
+			public const int RegPassWraper = 2131165352;
 			
-			// aapt resource value: 0x7f0700af
-			public const int Register_FatherNameEt = 2131165359;
+			// aapt resource value: 0x7f0700b0
+			public const int Register_FatherNameEt = 2131165360;
 			
 			// aapt resource value: 0x7f0700a6
 			public const int Register_LoginEt = 2131165350;
 			
-			// aapt resource value: 0x7f0700ae
-			public const int Register_NameEt = 2131165358;
-			
-			// aapt resource value: 0x7f0700b1
-			public const int Register_PassportEt = 2131165361;
-			
-			// aapt resource value: 0x7f0700a8
-			public const int Register_PasswordEt = 2131165352;
-			
-			// aapt resource value: 0x7f0700aa
-			public const int Register_RpPasswordEt = 2131165354;
-			
-			// aapt resource value: 0x7f0700ac
-			public const int Register_SurnameEt = 2131165356;
+			// aapt resource value: 0x7f0700af
+			public const int Register_NameEt = 2131165359;
 			
 			// aapt resource value: 0x7f0700b2
-			public const int Register_clubSelector = 2131165362;
-			
-			// aapt resource value: 0x7f0700b3
-			public const int Register_isExpert = 2131165363;
+			public const int Register_PassportEt = 2131165362;
 			
 			// aapt resource value: 0x7f0700a9
-			public const int RpPassWraper = 2131165353;
-			
-			// aapt resource value: 0x7f0700b4
-			public const int SendRegiterInfo = 2131165364;
+			public const int Register_PasswordEt = 2131165353;
 			
 			// aapt resource value: 0x7f0700ab
-			public const int SurnameWraper = 2131165355;
+			public const int Register_RpPasswordEt = 2131165355;
+			
+			// aapt resource value: 0x7f0700ad
+			public const int Register_SurnameEt = 2131165357;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int Register_clubSelector = 2131165363;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int Register_isExpert = 2131165364;
+			
+			// aapt resource value: 0x7f0700aa
+			public const int RpPassWraper = 2131165354;
+			
+			// aapt resource value: 0x7f0700b5
+			public const int SendRegiterInfo = 2131165365;
+			
+			// aapt resource value: 0x7f0700ac
+			public const int SurnameWraper = 2131165356;
 			
 			// aapt resource value: 0x7f070091
 			public const int action0 = 2131165329;
@@ -2405,8 +2408,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070024
 			public const int always = 2131165220;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int appbar = 2131165366;
+			// aapt resource value: 0x7f0700b7
+			public const int appbar = 2131165367;
 			
 			// aapt resource value: 0x7f070074
 			public const int authtabs = 2131165300;
@@ -2443,6 +2446,9 @@ namespace DogShow.Android
 			
 			// aapt resource value: 0x7f07009a
 			public const int chronometer = 2131165338;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int circularProgressBar = 2131165351;
 			
 			// aapt resource value: 0x7f07003a
 			public const int clip_horizontal = 2131165242;
@@ -2576,11 +2582,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070049
 			public const int list_item = 2131165257;
 			
-			// aapt resource value: 0x7f0700b5
-			public const int main_content = 2131165365;
+			// aapt resource value: 0x7f0700b6
+			public const int main_content = 2131165366;
 			
-			// aapt resource value: 0x7f0700b9
-			public const int masked = 2131165369;
+			// aapt resource value: 0x7f0700ba
+			public const int masked = 2131165370;
 			
 			// aapt resource value: 0x7f070094
 			public const int media_actions = 2131165332;
@@ -2594,20 +2600,20 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07001a
 			public const int multiply = 2131165210;
 			
-			// aapt resource value: 0x7f0700bc
-			public const int nav_adminPanel = 2131165372;
-			
-			// aapt resource value: 0x7f0700ba
-			public const int nav_dogShow = 2131165370;
-			
-			// aapt resource value: 0x7f0700be
-			public const int nav_expertPanel = 2131165374;
+			// aapt resource value: 0x7f0700bd
+			public const int nav_adminPanel = 2131165373;
 			
 			// aapt resource value: 0x7f0700bb
-			public const int nav_hallOfFame = 2131165371;
+			public const int nav_dogShow = 2131165371;
 			
-			// aapt resource value: 0x7f0700bd
-			public const int nav_myDog = 2131165373;
+			// aapt resource value: 0x7f0700bf
+			public const int nav_expertPanel = 2131165375;
+			
+			// aapt resource value: 0x7f0700bc
+			public const int nav_hallOfFame = 2131165372;
+			
+			// aapt resource value: 0x7f0700be
+			public const int nav_myDog = 2131165374;
 			
 			// aapt resource value: 0x7f07008c
 			public const int nav_view = 2131165324;
@@ -2801,8 +2807,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070058
 			public const int title_template = 2131165272;
 			
-			// aapt resource value: 0x7f0700b7
-			public const int toolbar = 2131165367;
+			// aapt resource value: 0x7f0700b8
+			public const int toolbar = 2131165368;
 			
 			// aapt resource value: 0x7f07002a
 			public const int top = 2131165226;
@@ -2831,8 +2837,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070075
 			public const int viewpager = 2131165301;
 			
-			// aapt resource value: 0x7f0700b8
-			public const int visible = 2131165368;
+			// aapt resource value: 0x7f0700b9
+			public const int visible = 2131165369;
 			
 			// aapt resource value: 0x7f070028
 			public const int withText = 2131165224;
@@ -3144,14 +3150,14 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f08002f
 			public const int DogShow = 2131230767;
 			
-			// aapt resource value: 0x7f080045
-			public const int ErrorMessageEmptyField = 2131230789;
-			
 			// aapt resource value: 0x7f080046
-			public const int ErrorMessagePassEquel = 2131230790;
+			public const int ErrorMessageEmptyField = 2131230790;
 			
 			// aapt resource value: 0x7f080047
-			public const int ErrorMessagePassLenght = 2131230791;
+			public const int ErrorMessagePassEquel = 2131230791;
+			
+			// aapt resource value: 0x7f080048
+			public const int ErrorMessagePassLenght = 2131230792;
 			
 			// aapt resource value: 0x7f080033
 			public const int ExpertPanel = 2131230771;
@@ -3206,6 +3212,9 @@ namespace DogShow.Android
 			
 			// aapt resource value: 0x7f08003b
 			public const int Register_Login = 2131230779;
+			
+			// aapt resource value: 0x7f080045
+			public const int Register_LoginExist = 2131230789;
 			
 			// aapt resource value: 0x7f08003f
 			public const int Register_Name = 2131230783;

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
+using Android.Icu.Lang;
 using Android.OS;
 using Android.Support.Design.Widget;
 using Android.Text;
@@ -61,20 +62,18 @@ namespace DogShow.Android.Fragments
 
             _regButton.Click += delegate
             {
-                if (IsRegisterAllow)
+                if (!IsRegisterAllow) return;
+                var registerModel = new UserModel
                 {
-                    var registerModel = new UserModel
-                    {
-                        Name = _nameEditText.Text,
-                        Surname = _surnameEditText.Text,
-                        Fathername = _fatherEditText.Text,
-                        PassportInfo = _passportInfoEditText.Text,
-                        ClubName = _clubName.SelectedItem.ToString(),
-                        ExpertState = _isExpert.Checked ? "waiting" : "none",
-                        Rights = "user"
-                    };
-
-                }
+                    Name = _nameEditText.Text,
+                    Surname = _surnameEditText.Text,
+                    Fathername = _fatherEditText.Text,
+                    PassportInfo = _passportInfoEditText.Text,
+                    ClubName = _clubName.SelectedItem.ToString(),
+                    ExpertState = _isExpert.Checked ? "waiting" : "none",
+                    Rights = "user"
+                };
+                //new RegisterTask(Activity).Execute(registerModel,_loginEditText.Text,)
             };
         }
 
@@ -100,7 +99,7 @@ namespace DogShow.Android.Fragments
             _clubName = Activity.FindViewById<Spinner>(Resource.Id.Register_clubSelector);
             _isExpert = Activity.FindViewById<CheckBox>(Resource.Id.Register_isExpert);
             _progressBar = Activity.FindViewById<ProgressBar>(Resource.Id.circularProgressBar);
-            _progressBar.Visibility = ViewStates.Visible;
+            _progressBar.Visibility = ViewStates.Invisible;
         }
 
         /// <summary>
@@ -110,6 +109,9 @@ namespace DogShow.Android.Fragments
         /// <param name="e">The <see cref="TextChangedEventArgs"/> instance containing the event data.</param>
         private void FieldsTextChanged(object sender, TextChangedEventArgs e)
         {
+            if ((EditText)sender == _loginEditText && _loginEditText.Length() > 0)
+                new CheckLoginTask(_progressBar, _loginWraper, GetString(Resource.String.Register_LoginExist))
+                    .Execute(_loginEditText.Text);
             EmptyFieldErrorShow();
             if (_passEditText.Length() < 8)
                 _passWraper.Error = GetString(Resource.String.ErrorMessagePassLenght);
@@ -120,13 +122,6 @@ namespace DogShow.Android.Fragments
                 _rpPassWraper.Error = GetString(Resource.String.ErrorMessagePassEquel);
             else
                 _rpPassWraper.ErrorEnabled = false;
-
-            if ((EditText) sender == _loginEditText)
-                Task.Factory.StartNew(() =>
-                {
-                    _progressBar.Visibility = ViewStates.Visible;
-                    //Call to db
-                });
         }
 
         /// <summary>
@@ -216,6 +211,44 @@ namespace DogShow.Android.Fragments
                     .Show();
             else
                 (_context as Activity)?.Finish();
+        }
+    }
+    public class CheckLoginTask : AsyncTask
+    {
+        private readonly ProgressBar _progressBar;
+        private readonly TextInputLayout _loginErrorWraper;
+        private readonly string _loginExistError;
+        private string _login;
+        public CheckLoginTask(ProgressBar progressBar, TextInputLayout loginErrorWraper, string loginExistError)
+        {
+            _progressBar = progressBar;
+            _loginErrorWraper = loginErrorWraper;
+            _loginExistError = loginExistError;
+        }
+
+        protected override void OnPreExecute()
+        {
+            base.OnPreExecute();
+            _progressBar.Visibility = ViewStates.Visible;
+        }
+
+        protected override Object DoInBackground(params Object[] @params)
+        {
+            _login = @params[0].ToString();
+            return new GetData().IsLoginExist(_login).ToString();
+        }
+
+        protected override void OnPostExecute(Object result)
+        {
+            base.OnPostExecute(result);
+            _progressBar.Visibility = ViewStates.Invisible;
+            if (result.ToString() == "1")
+            {
+                _loginErrorWraper.ErrorEnabled = true;
+                _loginErrorWraper.Error = _loginExistError.Replace("{existLogin}", _login);
+            }
+            else
+                _loginErrorWraper.ErrorEnabled = false;
         }
     }
 }

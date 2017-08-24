@@ -191,5 +191,15 @@ namespace DogShow.Data.DataDb
                 return null;
             }
         }
+        public object IsLoginExist(object login)
+        {
+            using (_connection)
+            {
+                _connection.OpenAsync();
+                Command = new MySqlCommand("SELECT Count(login) FROM users WHERE login=@login", _connection);
+                Command.Parameters.AddWithValue("login", login);
+                return Command.ExecuteScalarAsync().Result;
+            }
+        }
     }
 }

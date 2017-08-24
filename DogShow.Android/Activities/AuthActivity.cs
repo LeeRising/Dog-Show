@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.Content.PM;
@@ -45,6 +46,14 @@ namespace DogShow.Android
             _loginFragment = new LoginFragment();
             _registerFragment = new RegisterFragment();
             SetUpViewPager();
+
+#if DEBUG
+            //Task.Run(() =>
+            //{
+            //    while (true)
+            //        Title = Runtime.GetRuntime().TotalMemory().ToString();
+            //});
+#endif
         }
         protected override void AttachBaseContext(Context @base)
         {

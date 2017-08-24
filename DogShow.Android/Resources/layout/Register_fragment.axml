@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,14 +9,15 @@
         android:layout_width="match_parent"
         android:orientation="vertical">
     <!--Login field-->
-        <LinearLayout
+        <FrameLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
             <android.support.design.widget.TextInputLayout
                 android:id="@+id/RegLoginWraper"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:minWidth="25px"
+                android:minHeight="25px">
                 <EditText
                     android:layout_height="wrap_content"
                     android:hint="@string/Register_Login"
@@ -27,10 +28,11 @@
             <ProgressBar
                 style="?android:attr/progressBarStyleLarge"
                 android:id="@+id/circularProgressBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:progressDrawable="@drawable/circular_progressbar"/>
-        </LinearLayout>
+                android:layout_width="75px"
+                android:layout_height="75px"
+                android:layout_gravity="right|center"
+                android:progressDrawable="@drawable/circular_progressbar" />
+        </FrameLayout>
     <!---->
     <!--Password field-->
         <android.support.design.widget.TextInputLayout
@@ -119,8 +121,7 @@
         <Spinner
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
-            android:id="@+id/Register_clubSelector"
-            android:entries="Item 1" />
+            android:id="@+id/Register_clubSelector" />
     <!---->
     <!--Register as expert-->
         <CheckBox
