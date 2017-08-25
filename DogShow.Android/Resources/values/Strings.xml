@@ -4,6 +4,10 @@
   <string name="ApplicationName">Dogs Show</string>
   <string name="InProgressMes">Connection in progress</string>
   <string name="PlsWaitMes">Please wait...</string>
+  <!--Dialog-->
+  <string name="LogoutMessage">Are you sure to logout?</string>
+  <string name="YesBtn">Yes</string>
+  <string name="NoBtn">No</string>
   <!-- Login Activity -->
   <string name="LogSwitcher">Login</string>
   <string name="RegSwitcher">Register</string>

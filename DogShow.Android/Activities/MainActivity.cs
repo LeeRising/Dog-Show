@@ -10,10 +10,12 @@ using Android.Support.V7.App;
 using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
 using DogShow.Android.Fragments;
+using DogShow.Data;
 using UK.CO.Chrisjenx.Calligraphy;
 using ActionBarDrawerToggle = Android.Support.V7.App.ActionBarDrawerToggle;
 using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using SupportFragment = Android.Support.V4.App.Fragment;
+using AlertDialog = Android.Support.V7.App.AlertDialog;
 //using Badge.Plugin;
 
 namespace DogShow.Android
@@ -45,8 +47,9 @@ namespace DogShow.Android
         protected override void OnResume()
         {
             base.OnResume();
+            if (DataHolder.IsFirstTime == 0) new LoadCacheTask(this).Execute();
             if (DataHolder.User == null) return;
-            _loginRegiserTv.Text = DataHolder.User.Name;
+            _loginRegiserTv.Text = $"{DataHolder.User?.Name} {DataHolder.User?.Surname}";
         }
 
         protected override void AttachBaseContext(Context @base)
@@ -60,10 +63,11 @@ namespace DogShow.Android
             return true;
         }
 
+        /// <summary>
+        /// Componentsinits this instance.
+        /// </summary>
         private void Componentsinit()
         {
-            new LoadCacheTask(this).Execute();
-
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             NavigationHeaderInit();
@@ -85,6 +89,9 @@ namespace DogShow.Android
                 .Commit();
         }
 
+        /// <summary>
+        /// Navigations the header initialize.
+        /// </summary>
         private void NavigationHeaderInit()
         {
             _headerView = _navigationView.GetHeaderView(0);
@@ -98,10 +105,26 @@ namespace DogShow.Android
                 else
                 {
                     _drawerLayout.CloseDrawers();
+                    new AlertDialog.Builder(this)
+                        .SetTitle(GetString(Resource.String.LogoutMessage))
+                        .SetPositiveButton(GetString(Resource.String.YesBtn), (sender, args) =>
+                        {
+                            _loginRegiserTv.Text = GetString(Resource.String.LoginRegister);
+                            new ConfigDbContext().DeleteTableData<UserModel>(DataHolder.User);
+                            DataHolder.User = null;
+                        })
+                        .SetNegativeButton(GetString(Resource.String.NoBtn), (sender, args) =>
+                        {
+
+                        })
+                        .Show();
                 }
             };
         }
 
+        /// <summary>
+        /// Dictionaries the create.
+        /// </summary>
         private void DictionaryCreate()
         {
             _fragmentsDictionary = new Dictionary<int, SupportFragment>
@@ -115,6 +138,10 @@ namespace DogShow.Android
 
         }
 
+        /// <summary>
+        /// Setups the content of the drawer.
+        /// </summary>
+        /// <param name="navigationView">The navigation view.</param>
         private void SetupDrawerContent(NavigationView navigationView)
         {
             navigationView.NavigationItemSelected += (sender, e) =>

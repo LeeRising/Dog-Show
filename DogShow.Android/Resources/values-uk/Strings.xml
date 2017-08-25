@@ -4,6 +4,10 @@
   <string name="ApplicationName">Виставка собак</string>
   <string name="InProgressMes">Встановлюється зєднаня</string>
   <string name="PlsWaitMes">Зачекайте будь ласка...</string>
+  <!--Dialog-->
+  <string name="LogoutMessage">Ви впевнені що хочете розлогінись?</string>
+  <string name="YesBtn">Так</string>
+  <string name="NoBtn">Ні</string>
   <!-- Login Activity -->
   <string name="LogSwitcher">Увійти</string>
   <string name="RegSwitcher">Зареєструватися</string>

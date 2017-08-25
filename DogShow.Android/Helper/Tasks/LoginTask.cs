@@ -1,6 +1,7 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using DogShow.Data;
 using DogShow.Data.DataDb;
 using Java.Lang;
 using AlertDialog = Android.Support.V7.App.AlertDialog;
@@ -40,7 +41,10 @@ namespace DogShow.Android
                     .SetMessage((_context as Activity)?.GetString(Resource.String.LoginErrorMes))
                     .Show();
             else
+            {
+                new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);
                 (_context as Activity)?.Finish();
+            }
         }
     }
 }

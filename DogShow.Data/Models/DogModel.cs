@@ -1,5 +1,4 @@
-﻿using System;
-using SQLite;
+﻿using SQLite;
 
 namespace DogShow.Data
 {
@@ -15,8 +14,8 @@ namespace DogShow.Data
         public string ParentsName { get; set; }
         public string DateLastVaccenation { get; set; }
         public string MasterName { get; set; }
-        public string About { get; set; } = string.Empty;
-        public Uri PhotoUrl { get; set; }
+        public string About { get; set; }
+        public string PhotoUrl { get; set; }
         public int MedalsCount { get; set; }
         public int Mark { get; set; }
     }

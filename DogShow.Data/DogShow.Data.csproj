@@ -76,7 +76,6 @@
     <Compile Include="ConfigDbContext.cs" />
     <Compile Include="DataDb\Constans.cs" />
     <Compile Include="DataDb\GetData.cs" />
-    <Compile Include="Models\LogingUserModel.cs" />
     <Compile Include="Models\DogBattleModel.cs" />
     <Compile Include="Models\DogModel.cs" />
     <Compile Include="Models\ExpertModel.cs" />

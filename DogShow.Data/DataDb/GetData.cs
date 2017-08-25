@@ -66,6 +66,62 @@ namespace DogShow.Data.DataDb
                 return null;
             }
         }
+        public UserModel GetLoginUser(object _guid)
+        {
+            try
+            {
+                using (_connection)
+                {
+                    _connection.OpenAsync();
+                    Command = new MySqlCommand("SELECT guid,rights FROM users WHERE guid=@guid", _connection);
+                    Command.Parameters.AddWithValue("guid", _guid);
+                    var usersReader = Command.ExecuteReader();
+                    if (usersReader == null) return null;
+                    string guid, rights, club = string.Empty, expertState = string.Empty;
+                    using (usersReader)
+                    {
+                        usersReader.ReadAsync();
+                        guid = usersReader[0] as string;
+                        rights = usersReader[1] as string;
+                    }
+                    Command = new MySqlCommand($"SELECT Request,Club_id FROM experts WHERE guid='{guid}'", _connection);
+                    var expertReader = Command.ExecuteReader();
+                    if (expertReader != null)
+                    {
+                        object clubId;
+                        using (expertReader)
+                        {
+                            expertReader.ReadAsync();
+                            clubId = expertReader[1];
+                            expertState = expertReader[0] as string;
+                        }
+                        Command = new MySqlCommand($"SELECT Club_name FROM clubs WHERE id='{clubId}'", _connection);
+                        club = Command.ExecuteScalar() as string;
+                    }
+                    Command = new MySqlCommand($"SELECT Name,Surname,Fathername,Passport_info FROM masters WHERE guid='{guid}'", _connection);
+                    var dataReader = Command.ExecuteReader();
+                    using (dataReader)
+                    {
+                        dataReader.ReadAsync();
+                        return new UserModel
+                        {
+                            Guid = guid,
+                            Name = dataReader["Name"] as string,
+                            Surname = dataReader["Surname"] as string,
+                            Fathername = dataReader["Fathername"] as string,
+                            PassportInfo = dataReader["Passport_info"] as string,
+                            Rights = rights,
+                            ExpertState = expertState,
+                            ClubName = club
+                        };
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public object RegisterNewUser(object registerModel, object login, object hashPassword)
         {
             try

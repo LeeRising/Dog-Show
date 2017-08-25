@@ -2282,6 +2282,9 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070084
 			public const int LoginWraper = 2131165316;
 			
+			// aapt resource value: 0x7f0700b6
+			public const int LogsTv = 2131165366;
+			
 			// aapt resource value: 0x7f0700ae
 			public const int NameWraper = 2131165358;
 			
@@ -2408,8 +2411,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070024
 			public const int always = 2131165220;
 			
-			// aapt resource value: 0x7f0700b7
-			public const int appbar = 2131165367;
+			// aapt resource value: 0x7f0700b8
+			public const int appbar = 2131165368;
 			
 			// aapt resource value: 0x7f070074
 			public const int authtabs = 2131165300;
@@ -2582,11 +2585,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070049
 			public const int list_item = 2131165257;
 			
-			// aapt resource value: 0x7f0700b6
-			public const int main_content = 2131165366;
+			// aapt resource value: 0x7f0700b7
+			public const int main_content = 2131165367;
 			
-			// aapt resource value: 0x7f0700ba
-			public const int masked = 2131165370;
+			// aapt resource value: 0x7f0700bb
+			public const int masked = 2131165371;
 			
 			// aapt resource value: 0x7f070094
 			public const int media_actions = 2131165332;
@@ -2600,20 +2603,20 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07001a
 			public const int multiply = 2131165210;
 			
-			// aapt resource value: 0x7f0700bd
-			public const int nav_adminPanel = 2131165373;
-			
-			// aapt resource value: 0x7f0700bb
-			public const int nav_dogShow = 2131165371;
-			
-			// aapt resource value: 0x7f0700bf
-			public const int nav_expertPanel = 2131165375;
+			// aapt resource value: 0x7f0700be
+			public const int nav_adminPanel = 2131165374;
 			
 			// aapt resource value: 0x7f0700bc
-			public const int nav_hallOfFame = 2131165372;
+			public const int nav_dogShow = 2131165372;
 			
-			// aapt resource value: 0x7f0700be
-			public const int nav_myDog = 2131165374;
+			// aapt resource value: 0x7f0700c0
+			public const int nav_expertPanel = 2131165376;
+			
+			// aapt resource value: 0x7f0700bd
+			public const int nav_hallOfFame = 2131165373;
+			
+			// aapt resource value: 0x7f0700bf
+			public const int nav_myDog = 2131165375;
 			
 			// aapt resource value: 0x7f07008c
 			public const int nav_view = 2131165324;
@@ -2807,8 +2810,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070058
 			public const int title_template = 2131165272;
 			
-			// aapt resource value: 0x7f0700b8
-			public const int toolbar = 2131165368;
+			// aapt resource value: 0x7f0700b9
+			public const int toolbar = 2131165369;
 			
 			// aapt resource value: 0x7f07002a
 			public const int top = 2131165226;
@@ -2837,8 +2840,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f070075
 			public const int viewpager = 2131165301;
 			
-			// aapt resource value: 0x7f0700b9
-			public const int visible = 2131165369;
+			// aapt resource value: 0x7f0700ba
+			public const int visible = 2131165370;
 			
 			// aapt resource value: 0x7f070028
 			public const int withText = 2131165224;
@@ -3141,98 +3144,107 @@ namespace DogShow.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f080033
-			public const int AdminPanel = 2131230771;
+			// aapt resource value: 0x7f080036
+			public const int AdminPanel = 2131230774;
 			
 			// aapt resource value: 0x7f080029
 			public const int ApplicationName = 2131230761;
 			
-			// aapt resource value: 0x7f080031
-			public const int DogShow = 2131230769;
+			// aapt resource value: 0x7f080034
+			public const int DogShow = 2131230772;
 			
-			// aapt resource value: 0x7f080045
-			public const int ErrorEmptyField = 2131230789;
+			// aapt resource value: 0x7f080048
+			public const int ErrorEmptyField = 2131230792;
 			
-			// aapt resource value: 0x7f080046
-			public const int ErrorPassEquel = 2131230790;
+			// aapt resource value: 0x7f080049
+			public const int ErrorPassEquel = 2131230793;
 			
-			// aapt resource value: 0x7f080047
-			public const int ErrorPassLenght = 2131230791;
+			// aapt resource value: 0x7f08004a
+			public const int ErrorPassLenght = 2131230794;
+			
+			// aapt resource value: 0x7f080038
+			public const int ExpertPanel = 2131230776;
 			
 			// aapt resource value: 0x7f080035
-			public const int ExpertPanel = 2131230773;
-			
-			// aapt resource value: 0x7f080032
-			public const int HallOfFame = 2131230770;
+			public const int HallOfFame = 2131230773;
 			
 			// aapt resource value: 0x7f08002a
 			public const int InProgressMes = 2131230762;
 			
-			// aapt resource value: 0x7f08002c
-			public const int LogSwitcher = 2131230764;
+			// aapt resource value: 0x7f08002f
+			public const int LogSwitcher = 2131230767;
+			
+			// aapt resource value: 0x7f08003c
+			public const int LoginErrorMes = 2131230780;
 			
 			// aapt resource value: 0x7f080039
-			public const int LoginErrorMes = 2131230777;
+			public const int LoginLabel = 2131230777;
 			
-			// aapt resource value: 0x7f080036
-			public const int LoginLabel = 2131230774;
+			// aapt resource value: 0x7f080031
+			public const int LoginRegister = 2131230769;
 			
-			// aapt resource value: 0x7f08002e
-			public const int LoginRegister = 2131230766;
+			// aapt resource value: 0x7f08003b
+			public const int LoginSuccesMes = 2131230779;
 			
-			// aapt resource value: 0x7f080038
-			public const int LoginSuccesMes = 2131230776;
-			
-			// aapt resource value: 0x7f080034
-			public const int MyDog = 2131230772;
+			// aapt resource value: 0x7f08002c
+			public const int LogoutMessage = 2131230764;
 			
 			// aapt resource value: 0x7f080037
-			public const int PasswordLabel = 2131230775;
+			public const int MyDog = 2131230775;
+			
+			// aapt resource value: 0x7f08002e
+			public const int NoBtn = 2131230766;
+			
+			// aapt resource value: 0x7f08003a
+			public const int PasswordLabel = 2131230778;
 			
 			// aapt resource value: 0x7f08002b
 			public const int PlsWaitMes = 2131230763;
 			
-			// aapt resource value: 0x7f08002d
-			public const int RegSwitcher = 2131230765;
+			// aapt resource value: 0x7f080030
+			public const int RegSwitcher = 2131230768;
 			
-			// aapt resource value: 0x7f080043
-			public const int Register_Btn = 2131230787;
-			
-			// aapt resource value: 0x7f080041
-			public const int Register_Club = 2131230785;
-			
-			// aapt resource value: 0x7f08003f
-			public const int Register_Fathername = 2131230783;
-			
-			// aapt resource value: 0x7f080042
-			public const int Register_IsExpert = 2131230786;
-			
-			// aapt resource value: 0x7f08003a
-			public const int Register_Login = 2131230778;
+			// aapt resource value: 0x7f080046
+			public const int Register_Btn = 2131230790;
 			
 			// aapt resource value: 0x7f080044
-			public const int Register_LoginExist = 2131230788;
+			public const int Register_Club = 2131230788;
 			
-			// aapt resource value: 0x7f08003e
-			public const int Register_Name = 2131230782;
+			// aapt resource value: 0x7f080042
+			public const int Register_Fathername = 2131230786;
 			
-			// aapt resource value: 0x7f080040
-			public const int Register_Passport = 2131230784;
-			
-			// aapt resource value: 0x7f08003b
-			public const int Register_Password = 2131230779;
-			
-			// aapt resource value: 0x7f08003c
-			public const int Register_RpPassword = 2131230780;
+			// aapt resource value: 0x7f080045
+			public const int Register_IsExpert = 2131230789;
 			
 			// aapt resource value: 0x7f08003d
-			public const int Register_Surname = 2131230781;
+			public const int Register_Login = 2131230781;
 			
-			// aapt resource value: 0x7f080048
-			public const int SomethingWentWrongMes = 2131230792;
+			// aapt resource value: 0x7f080047
+			public const int Register_LoginExist = 2131230791;
 			
-			// aapt resource value: 0x7f080049
-			public const int TryLater = 2131230793;
+			// aapt resource value: 0x7f080041
+			public const int Register_Name = 2131230785;
+			
+			// aapt resource value: 0x7f080043
+			public const int Register_Passport = 2131230787;
+			
+			// aapt resource value: 0x7f08003e
+			public const int Register_Password = 2131230782;
+			
+			// aapt resource value: 0x7f08003f
+			public const int Register_RpPassword = 2131230783;
+			
+			// aapt resource value: 0x7f080040
+			public const int Register_Surname = 2131230784;
+			
+			// aapt resource value: 0x7f08004b
+			public const int SomethingWentWrongMes = 2131230795;
+			
+			// aapt resource value: 0x7f08004c
+			public const int TryLater = 2131230796;
+			
+			// aapt resource value: 0x7f08002d
+			public const int YesBtn = 2131230765;
 			
 			// aapt resource value: 0x7f080000
 			public const int abc_action_bar_home_description = 2131230720;
@@ -3336,11 +3348,11 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f080023
 			public const int character_counter_pattern = 2131230755;
 			
-			// aapt resource value: 0x7f080030
-			public const int drawer_close = 2131230768;
+			// aapt resource value: 0x7f080033
+			public const int drawer_close = 2131230771;
 			
-			// aapt resource value: 0x7f08002f
-			public const int drawer_open = 2131230767;
+			// aapt resource value: 0x7f080032
+			public const int drawer_open = 2131230770;
 			
 			// aapt resource value: 0x7f080024
 			public const int password_toggle_content_description = 2131230756;

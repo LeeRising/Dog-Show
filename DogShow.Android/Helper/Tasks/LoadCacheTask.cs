@@ -1,6 +1,8 @@
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Support.V7.App;
+using DogShow.Data;
 using DogShow.Data.DataDb;
 using Java.Lang;
 
@@ -26,6 +28,10 @@ namespace DogShow.Android
         protected override Object DoInBackground(params Object[] @params)
         {
             DataHolder.ClubList = new GetData().GetClubsName();
+
+            var guid = new ConfigDbContext().SelectUserGuid().Result;
+            DataHolder.User = new GetData().GetLoginUser(guid);
+            new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);
             return true;
         }
 
@@ -33,6 +39,9 @@ namespace DogShow.Android
         {
             base.OnPostExecute(result);
             _progressDialog.Hide();
+            DataHolder.IsFirstTime = 1;
+            (_context as AppCompatActivity)?.Finish();
+            _context.StartActivity(typeof(MainActivity));
         }
     }
 }

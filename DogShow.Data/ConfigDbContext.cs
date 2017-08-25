@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using SQLite;
 
@@ -7,69 +9,89 @@ namespace DogShow.Data
 {
     public class ConfigDbContext
     {
-        private const string DbPath = "dogShow.db";
-        private static string _folder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-        private readonly SQLiteAsyncConnection _sqLiteConnection = new SQLiteAsyncConnection(Path.Combine(_folder, DbPath));
+        private const string DbName = "dogShow.db";
+        private readonly string _path;
 
         public string Log { get; set; }
 
         public ConfigDbContext()
         {
-            Log = CreateDatabase();
+            var folder = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            _path = Path.Combine(folder, DbName);
+            if (!File.Exists(_path)) Log = CreateDatabase().Result;
         }
 
-        private string CreateDatabase()
+        private async Task<string> CreateDatabase()
         {
-            var returnRes = string.Empty;
             try
             {
-                _sqLiteConnection.CreateTableAsync<LogingUser>().ContinueWith(t =>
+                var db = new SQLiteAsyncConnection(_path);
                 {
-                    returnRes += "Table 'LogingUser' created\n";
-                });
-                _sqLiteConnection.CreateTableAsync<UserModel>().ContinueWith(t =>
-                {
-                    returnRes += "Table 'UserModel' created\n";
-                });
-                _sqLiteConnection.CreateTableAsync<DogModel>().ContinueWith(t =>
-                {
-                    returnRes += "Table 'DogModel' created\n";
-                });
-                _sqLiteConnection.CreateTableAsync<DogBattleModel>().ContinueWith(t =>
-                {
-                    returnRes += "Table 'DogBattleModel' created\n";
-                });
-
-                return "Database created";
+                    await db.CreateTableAsync<UserModel>();
+                    await db.CreateTableAsync<DogModel>();
+                    await db.CreateTableAsync<DogBattleModel>();
+                    return "Database created";
+                }
             }
-
             catch (SQLiteException ex)
             {
                 return ex.Message;
             }
         }
-        private async Task UpdateData<T>(T data)
+
+        public async void InsertData<T>(T data)
         {
             try
             {
-                var db = new SQLiteAsyncConnection(DbPath);
-                await db.UpdateAsync(data);
+                var db = new SQLiteAsyncConnection(_path);
+                {
+                    await db.InsertAsync(data);
+                }
             }
             catch (SQLiteException)
             {
             }
         }
-        public int SelectUser(string login, string password)
+        public async void UpdateData<T>(T data)
         {
             try
             {
-                var db = new SQLiteAsyncConnection(DbPath);
-                var count = db.ExecuteScalarAsync<int>($"SELECT Count(*) FROM LogingUser WHERE Login={login} AND Password={password}");
-                return count.Result;
+                var db = new SQLiteAsyncConnection(_path);
+                {
+                    await db.UpdateAsync(data);
+                }
             }
             catch (SQLiteException)
             {
-                return -1;
+                
+            }
+        }
+
+        public async void DeleteTableData<T>(T data)
+        {
+            try
+            {
+                var db = new SQLiteAsyncConnection(_path);
+                {
+                    await db.DeleteAsync(data);
+                }
+            }
+            catch (SQLiteException)
+            {
+
+            }
+        }
+
+        public async Task<string> SelectUserGuid()
+        {
+            try
+            {
+                var db = new SQLiteAsyncConnection(_path);
+                return await db.ExecuteScalarAsync<string>("SELECT Guid from UserModel");
+            }
+            catch (SQLiteException)
+            {
+                return null;
             }
         }
     }

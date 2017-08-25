@@ -44,6 +44,7 @@ namespace DogShow.Android
             else
             {
                 DataHolder.User = _user;
+                new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);
                 (_context as Activity)?.Finish();
             }
         }
