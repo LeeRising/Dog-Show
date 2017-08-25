@@ -3,8 +3,8 @@
   <group android:checkableBehavior="single">
     <item android:id="@+id/nav_dogShow" android:icon="@drawable/ic_dashboard" android:title="@string/DogShow" android:visible ="true" android:checked="true"/>
     <item android:id="@+id/nav_hallOfFame" android:icon="@drawable/ic_event" android:title="@string/HallOfFame" android:visible ="true"/>
-    <item android:id="@+id/nav_adminPanel" android:icon="@drawable/ic_headset" android:title="@string/AdminPanel" android:visible ="true"/>
-    <item android:id="@+id/nav_myDog" android:icon="@drawable/ic_forum" android:title="@string/MyDog" android:visible ="true"/>
-    <item android:id="@+id/nav_expertPanel" android:icon="@drawable/ic_forum" android:title="@string/ExpertPanel" android:visible ="true"/>
+    <item android:id="@+id/nav_myDog" android:icon="@drawable/ic_forum" android:title="@string/MyDog" android:visible ="false"/>
+    <item android:id="@+id/nav_adminPanel" android:icon="@drawable/ic_headset" android:title="@string/AdminPanel" android:visible ="false"/>
+    <item android:id="@+id/nav_expertPanel" android:icon="@drawable/ic_forum" android:title="@string/ExpertPanel" android:visible ="false"/>
   </group>
 </menu>

@@ -2603,8 +2603,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f07001a
 			public const int multiply = 2131165210;
 			
-			// aapt resource value: 0x7f0700be
-			public const int nav_adminPanel = 2131165374;
+			// aapt resource value: 0x7f0700bf
+			public const int nav_adminPanel = 2131165375;
 			
 			// aapt resource value: 0x7f0700bc
 			public const int nav_dogShow = 2131165372;
@@ -2615,8 +2615,8 @@ namespace DogShow.Android
 			// aapt resource value: 0x7f0700bd
 			public const int nav_hallOfFame = 2131165373;
 			
-			// aapt resource value: 0x7f0700bf
-			public const int nav_myDog = 2131165375;
+			// aapt resource value: 0x7f0700be
+			public const int nav_myDog = 2131165374;
 			
 			// aapt resource value: 0x7f07008c
 			public const int nav_view = 2131165324;

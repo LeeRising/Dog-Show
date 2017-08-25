@@ -70,7 +70,6 @@ namespace DogShow.Android
         {
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-            NavigationHeaderInit();
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
             var drawerToggle = new ActionBarDrawerToggle(this, _drawerLayout, toolbar, Resource.String.drawer_open, Resource.String.drawer_close);
@@ -87,8 +86,9 @@ namespace DogShow.Android
             SupportFragmentManager.BeginTransaction()
                 .Replace(Resource.Id.frame_content_container, _showsFragment, "Show window")
                 .Commit();
+            NavigationHeaderInit();
         }
-
+        
         /// <summary>
         /// Navigations the header initialize.
         /// </summary>
@@ -100,6 +100,7 @@ namespace DogShow.Android
             _loginRegiserTv.Typeface = typeface;
             _loginRegiserTv.Click += delegate
             {
+                _drawerLayout.CloseDrawers();
                 if (_loginRegiserTv.Text == GetString(Resource.String.LoginRegister))
                     StartActivity(typeof(AuthActivity));
                 else
@@ -120,6 +121,10 @@ namespace DogShow.Android
                         .Show();
                 }
             };
+            _drawerLayout.DrawerOpened += delegate
+            {
+                SetMenuItemsVisibility();
+            };
         }
 
         /// <summary>
@@ -139,6 +144,30 @@ namespace DogShow.Android
         }
 
         /// <summary>
+        /// Sets the menu items visibility.
+        /// </summary>
+        private void SetMenuItemsVisibility()
+        {
+            var menu = _navigationView.Menu;
+            var rights = DataHolder.User?.Rights;
+            if (rights != null)
+            {
+                if (rights == "organizer")
+                    menu.GetItem(3).SetVisible(true);
+                if (rights == "user")
+                    menu.GetItem(2).SetVisible(true);
+                if (DataHolder.User.ExpertState == "true")
+                    menu.GetItem(4).SetVisible(true);
+            }
+            else
+            {
+                menu.GetItem(2).SetVisible(false);
+                menu.GetItem(3).SetVisible(false);
+                menu.GetItem(4).SetVisible(false);
+            }
+        }
+
+        /// <summary>
         /// Setups the content of the drawer.
         /// </summary>
         /// <param name="navigationView">The navigation view.</param>
@@ -150,7 +179,7 @@ namespace DogShow.Android
                 if (e.MenuItem.IsChecked) return;
                 ShowFragment(_fragmentsDictionary[e.MenuItem.ItemId], e.MenuItem.ToString());
                 e.MenuItem.SetChecked(true);
-                Title = e.MenuItem.ToString();
+                //Title = e.MenuItem.ToString();
             };
         }
 

@@ -30,8 +30,8 @@ namespace DogShow.Android
             DataHolder.ClubList = new GetData().GetClubsName();
 
             var guid = new ConfigDbContext().SelectUserGuid().Result;
-            DataHolder.User = new GetData().GetLoginUser(guid);
-            new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);
+            if ((DataHolder.User = new GetData().GetLoginUser(guid)) != null)
+                new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);
             return true;
         }
 

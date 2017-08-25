@@ -50,6 +50,7 @@ namespace DogShow.Data
             }
             catch (SQLiteException)
             {
+                
             }
         }
         public async void UpdateData<T>(T data)

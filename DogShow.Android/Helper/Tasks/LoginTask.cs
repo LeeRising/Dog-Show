@@ -42,7 +42,7 @@ namespace DogShow.Android
                     .Show();
             else
             {
-                new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);
+                new ConfigDbContext().InsertData<UserModel>(DataHolder.User);
                 (_context as Activity)?.Finish();
             }
         }
