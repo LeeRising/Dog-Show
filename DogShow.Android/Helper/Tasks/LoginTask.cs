@@ -12,7 +12,7 @@ namespace DogShow.Android
     {
         private ProgressDialog _progressDialog;
         private readonly Context _context;
-
+        
         public LoginTask(Context context)
         {
             _context = context;

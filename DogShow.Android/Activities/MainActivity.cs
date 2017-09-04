@@ -176,10 +176,12 @@ namespace DogShow.Android
                 _drawerLayout.CloseDrawers();
                 if (e.MenuItem.IsChecked) return;
                 if (e.MenuItem.ItemId != Resource.Id.nav_adminPanel)
+                {
                     ShowFragment(_fragmentsDictionary[e.MenuItem.ItemId], e.MenuItem.ToString());
+                    e.MenuItem.SetChecked(true);
+                }
                 else
                     StartActivity(typeof(AdminActivity));
-                e.MenuItem.SetChecked(true);
             };
         }
 

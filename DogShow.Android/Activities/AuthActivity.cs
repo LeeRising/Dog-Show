@@ -17,7 +17,7 @@ using SupportFragmentManager = Android.Support.V4.App.FragmentManager;
 
 namespace DogShow.Android
 {
-    [Activity(Label = "@string/LogSwitcher", Icon = "@drawable/icon", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/LogSwitcher", Icon = "@drawable/icon", Theme = "@style/AppTheme", ScreenOrientation = ScreenOrientation.Portrait, ParentActivity = typeof(MainActivity))]
     public class AuthActivity : AppCompatActivity
     {
         private SupportFragment _loginFragment, _registerFragment;
