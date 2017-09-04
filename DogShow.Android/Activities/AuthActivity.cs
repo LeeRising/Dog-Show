@@ -7,6 +7,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
+using Android.Views;
 using DogShow.Android.Fragments;
 using Java.Lang;
 using UK.CO.Chrisjenx.Calligraphy;
@@ -32,6 +33,7 @@ namespace DogShow.Android
 
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
 
             _loginFragment = new LoginFragment();
             _registerFragment = new RegisterFragment();

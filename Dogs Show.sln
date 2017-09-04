@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.Data", "DogShow.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogShow.Server", "DogShow.Server\DogShow.Server.csproj", "{5C4B80D0-91EE-439B-B943-3A07ED826685}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DogShow.ImageServer", "DogShow.ImageServer\DogShow.ImageServer.csproj", "{859330A0-A40B-4D54-A3FF-D20908C03E36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DogShow.ImageServer", "DogShow.ImageServer\DogShow.ImageServer.csproj", "{859330A0-A40B-4D54-A3FF-D20908C03E36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

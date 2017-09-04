@@ -79,7 +79,6 @@ namespace DogShow.Android
 
             _showsFragment = new ShowsFragment();
             _fameFragment = new FameFragment();
-            _adminFragment = new AdminFragment();
             _expertFragment = new ExpertFragment();
             _myDogFragment = new MyDogFragment();
 
@@ -88,7 +87,7 @@ namespace DogShow.Android
                 .Commit();
             NavigationHeaderInit();
         }
-        
+
         /// <summary>
         /// Navigations the header initialize.
         /// </summary>
@@ -136,7 +135,6 @@ namespace DogShow.Android
             {
                 {Resource.Id.nav_dogShow, _showsFragment},
                 {Resource.Id.nav_hallOfFame, _fameFragment},
-                {Resource.Id.nav_adminPanel, _adminFragment},
                 {Resource.Id.nav_myDog, _myDogFragment},
                 {Resource.Id.nav_expertPanel, _expertFragment}
             };
@@ -177,9 +175,11 @@ namespace DogShow.Android
             {
                 _drawerLayout.CloseDrawers();
                 if (e.MenuItem.IsChecked) return;
-                ShowFragment(_fragmentsDictionary[e.MenuItem.ItemId], e.MenuItem.ToString());
+                if (e.MenuItem.ItemId != Resource.Id.nav_adminPanel)
+                    ShowFragment(_fragmentsDictionary[e.MenuItem.ItemId], e.MenuItem.ToString());
+                else
+                    StartActivity(typeof(AdminActivity));
                 e.MenuItem.SetChecked(true);
-                //Title = e.MenuItem.ToString();
             };
         }
 

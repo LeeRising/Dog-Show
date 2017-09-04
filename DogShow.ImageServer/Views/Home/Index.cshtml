@@ -1,9 +1,13 @@
-﻿@{
+﻿@using FormMethod = Microsoft.AspNetCore.Mvc.Rendering.FormMethod
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<form asp-action="AddFile" asp-controller="Home" method="post" enctype="multipart/form-data">
-    <input type="file" name="uploadedFile" /><br>
-    <input type="text" name="avatarType" /><br>
+
+
+@using (Html.BeginForm("AddFile", "Home", null, FormMethod.Post, false, new { enctype = "multipart/form-data" }))
+{
+    <input type="file" name="File" /><br>
+    <input type="text" name="Avatar" /><br>
     <input type="submit" value="Загрузить" />
-</form>
+}

@@ -28,7 +28,7 @@ namespace DogShow.Android
         protected override Object DoInBackground(params Object[] @params)
         {
             DataHolder.ClubList = new GetData().GetClubsName();
-
+            DataHolder.TopClubsModels = new GetData().GetTopFiveClub();
             var guid = new ConfigDbContext().SelectUserGuid().Result;
             if ((DataHolder.User = new GetData().GetLoginUser(guid)) != null)
                 new ConfigDbContext().UpdateData<UserModel>(DataHolder.User);

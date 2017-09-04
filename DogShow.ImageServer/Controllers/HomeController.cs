@@ -1,5 +1,7 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DogShow.ImageServer.Models;
@@ -22,27 +24,26 @@ namespace DogShow.ImageServer.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddFile(IFormFile uploadedFile,string avatarType)
+        public async Task<IActionResult> AddFile(FileModel model)
         {
-            if (uploadedFile == null) return RedirectToAction("Index");
-            var path = $"/Files/{avatarType}/" + uploadedFile.FileName;
+            if (!ModelState.IsValid) return BadRequest("Invalid model");
+            Console.WriteLine(model.File.Length);
+            var path = $"/Files/{model.Avatar}/" + model.File.FileName;
             using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
-                await uploadedFile.CopyToAsync(fileStream);
+                await model.File.CopyToAsync(fileStream);
+            Console.WriteLine(_appEnvironment.WebRootPath + path);
             return RedirectToAction("Index");
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> GetPhoto(object photoName, object avatarType)
-        {
-            if (photoName == null) return RedirectToAction("Error");
-            var path = $"/Files/{avatarType}/" + photoName;
-            var image = System.IO.File.OpenRead(path);
-            return File(image, "image/jpeg");
         }
 
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+    }
+
+    public class FileModel
+    {
+        public IFormFile File { get; set; }
+        public string Avatar { get; set; }
     }
 }

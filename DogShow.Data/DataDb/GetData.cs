@@ -262,39 +262,40 @@ namespace DogShow.Data.DataDb
                 return null;
             }
         }
-        public void GetInfo()
+        public List<TopClubsModel> GetTopFiveClub()
         {
             using (_connection)
             {
+                var list = new List<TopClubsModel>();
                 _connection.OpenAsync();
-                Command = new MySqlCommand("SELECT id,Club_name,Medals_count FROM clubs ORDER BY Medals_count DESC LIMIT 5", _connection);
-                var mySqlDataAdapter = new MySqlDataAdapter(Command);
-                //DataSet ds = new DataSet();
-                //adp.Fill(ds, "LoadDataBinding");
-                //ds.Tables[0].Columns["id"].ColumnName = "№";
-                //ds.Tables[0].Columns["Club_name"].ColumnName = "Club name";
-                //ds.Tables[0].Columns["Medals_count"].ColumnName = "Medals count";
-                //TopClubsDataGrid.DataContext = ds;
-
-                //msc = new MySqlCommand("SELECT Name,Photo,Medals_count FROM dogs ORDER BY Medals_count DESC LIMIT 3", _connection);
-                //var mdr = await msc.ExecuteReaderAsync() as MySqlDataReader;
-                //_DogModel.Clear();
-                //while (mdr.ReadAsync())
-                //{
-                //    _DogModel.Add(new DogModel
-                //    {
-                //        NameAge = (string)mdr["Name"],
-                //        PhotoUrl = (string)mdr["Photo"] == "No_image.png" ? _no_image : new Uri("http://kursova.sytes.net/" + mdr["Photo"] as string),
-                //        MedalsCount = (int)mdr["Medals_count"]
-                //    });
-                //}
+                Command = new MySqlCommand("SELECT Club_name,Medals_count FROM clubs ORDER BY Medals_count DESC LIMIT 5", _connection);
+                var dataReader = Command.ExecuteReader();
+                while (dataReader.Read())
+                    list.Add(new TopClubsModel
+                    {
+                        Name = dataReader["Club_name"].ToString(),
+                        MedalsCount = dataReader["Medals_count"].ToString()
+                    });
+                return list;
             }
-            //FirstPlaceName.Text = _DogModel[0].NameAge + "," + Convert.ToString(_DogModel[0].MedalsCount);
-            //FirstPlaceImage.Source = new BitmapImage(_DogModel[0].PhotoUrl);
-            //SecondPlaceName.Text = _DogModel[1].NameAge + "," + Convert.ToString(_DogModel[1].MedalsCount);
-            //SecondPlaceImage.Source = new BitmapImage(_DogModel[1].PhotoUrl);
-            //ThirdPlaceName.Text = _DogModel[2].NameAge + "," + Convert.ToString(_DogModel[2].MedalsCount);
-            //ThirdPlaceImage.Source = new BitmapImage(_DogModel[2].PhotoUrl);
+        }
+        public List<TopDogsModel> GetTopThreeDog()
+        {
+            using (_connection)
+            {
+                var list = new List<TopDogsModel>();
+                _connection.OpenAsync();
+                Command = new MySqlCommand("SELECT Name,Photo,Medals_count FROM dogs ORDER BY Medals_count DESC LIMIT 3", _connection);
+                var dataReader = Command.ExecuteReader();
+                while (dataReader.Read())
+                    list.Add(new TopDogsModel
+                    {
+                        Name = dataReader["Name"].ToString(),
+                        Age = dataReader["Medals_count"].ToString(),
+                        Photo = (string)dataReader["Photo"] == "No_image.png" ? "No_image.png" : "http://pichost.sytes.net/Files/dogs/" + dataReader["Photo"]
+                    });
+                return list;
+            }
         }
     }
 }

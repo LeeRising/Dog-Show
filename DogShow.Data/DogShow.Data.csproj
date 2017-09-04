@@ -80,6 +80,8 @@
     <Compile Include="Models\DogModel.cs" />
     <Compile Include="Models\ExpertModel.cs" />
     <Compile Include="Models\HallOfFameModel.cs" />
+    <Compile Include="Models\TopClubsModel.cs" />
+    <Compile Include="Models\TopDogsModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
